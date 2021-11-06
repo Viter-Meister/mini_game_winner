@@ -1,27 +1,20 @@
+using System;
 using System.Collections;
 using UnityEngine;
-using System;
-using UnityEngine.UI;
 
-public class GameController : MonoBehaviour
+public class GameControllerBlue : MonoBehaviour
 {
-    public float BoxeChangePlaceSpeed = 0.5f;
+    public float BoxeChangePlaceSpeed = 0.13f;
     public Transform BoxeToPlace;
-    int i = 0, j = 4;
-    float oldY = -1, newY = -1;
+    public GameObject BoxeToCreate, AllBoxes;
 
-    public GameObject BoxeToCreateBlue, AllBoxesBlue;
+    public float oldY = -1, newY = -1;
 
-    private bool IsWin;
-
-    public Text Winner;
-
-    public float TimerTime = 3;
-    public Text TimerText;
+    private int i = 0, j = 4;
 
     private bool IsWait = false;
 
-    private Vector2[] AllSpawnPositionBlue = new Vector2[6] {
+    private Vector2[] AllSpawnPosition = new Vector2[6] {
         new Vector2(-8, -4),
         new Vector2(-7, -4),
         new Vector2(-6, -4),
@@ -54,57 +47,32 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && BoxeToPlace != null && IsWait)
+        if (Input.GetKeyDown(KeyCode.Space) && BoxeToPlace != null && IsWait)
         {
             BoxeToPlace.gameObject.SetActive(false);
+            IsWait = false;
 
-            GameObject NewBoxe = Instantiate(BoxeToCreateBlue,
-            BoxeToPlace.position,
-            Quaternion.identity);
-            NewBoxe.transform.SetParent(AllBoxesBlue.transform);
+            GameObject NewBoxe = Instantiate(BoxeToCreate,
+                BoxeToPlace.position,
+                Quaternion.identity);
+
+            NewBoxe.transform.SetParent(AllBoxes.transform);
 
             TakePosition(NewBoxe.transform.position);
 
-            IsWait = false;
+            SetNewY();
 
-            for (int i = 0; i < 7; i++)
-                for (int j = 0; j < 6; j++)
-                    if (AllHeldPosition[i, j] == 1)
-                    {
-                        newY = i;
-                        break;
-                    }
+            ChangeSpawnPosition();
 
-            if (newY > oldY)
-            {
-                for (int i = 0; i < 6; i++)
-                    AllSpawnPositionBlue[i].y += 1;
-                oldY = newY;
-            }
+            ChangeSpeed(Convert.ToInt32(Math.Truncate(newY)));
 
             SpawnPosition();
-        }
-
-        if (!IsWin && newY == 6)
-        {
-            IsWin = true;
-            StopAllCoroutines();
-            Destroy(BoxeToPlace.gameObject);
-            Winner.text = "Blue won!";
-        }
-
-        if (TimerTime < 1)
-            Destroy(TimerText.gameObject);
-        else
-        {
-            TimerText.text = Math.Round(TimerTime).ToString();
-            TimerTime -= Time.deltaTime;
         }
     }
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
     }
 
     IEnumerator ShowBoxePlace()
@@ -121,19 +89,19 @@ public class GameController : MonoBehaviour
     {
         if (i <= 5)
         {
-            BoxeToPlace.position = AllSpawnPositionBlue[i];
+            BoxeToPlace.position = AllSpawnPosition[i];
             i += 1;
         }
         else if (j > 0)
         {
-            BoxeToPlace.position = AllSpawnPositionBlue[j];
+            BoxeToPlace.position = AllSpawnPosition[j];
             j -= 1;
         }
         else
         {
             i = 0;
             j = 4;
-            BoxeToPlace.position = AllSpawnPositionBlue[i];
+            BoxeToPlace.position = AllSpawnPosition[i];
             i += 1;
         }
     }
@@ -202,6 +170,40 @@ public class GameController : MonoBehaviour
                         }
                     break;
                 }
+        }
+    }
+
+    private void ChangeSpeed(int i)
+    {
+        switch (i)
+        {
+            case 1: BoxeChangePlaceSpeed = 0.1f; break;
+            case 2: BoxeChangePlaceSpeed = 0.1f; break;
+            case 3: BoxeChangePlaceSpeed = 0.07f; break;
+            case 4: BoxeChangePlaceSpeed = 0.07f; break;
+            case 5: BoxeChangePlaceSpeed = 0.05f; break;
+            case 6: BoxeChangePlaceSpeed = 0.03f; break;
+        }
+    }
+
+    void SetNewY()
+    {
+        for (int i = 0; i < 7; i++)
+            for (int j = 0; j < 6; j++)
+                if (AllHeldPosition[i, j] == 1)
+                {
+                    newY = i;
+                    break;
+                }
+    }
+
+    void ChangeSpawnPosition()
+    {
+        if (newY > oldY)
+        {
+            for (int i = 0; i < 6; i++)
+                AllSpawnPosition[i].y += 1;
+            oldY = newY;
         }
     }
 }
