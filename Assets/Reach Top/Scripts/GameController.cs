@@ -18,7 +18,8 @@ public class GameController : MonoBehaviour
 
     public float TimerTime = 3;
     public Text TimerText;
-    private bool FlagForTimmer = false;
+
+    private bool IsWait = false;
 
     private Vector2[] AllSpawnPositionBlue = new Vector2[6] {
         new Vector2(-8, -4),
@@ -40,27 +41,31 @@ public class GameController : MonoBehaviour
         {0, 0, 0, 0, 0, 0 },
     };
 
-    private Coroutine showBoxePlace;
-
-    private void Start()
+    private IEnumerator Start()
     {
-        showBoxePlace = StartCoroutine(ShowBoxePlace());
+        while (true)
+        {
+            yield return StartCoroutine(Wait());
+            IsWait = true;
+            BoxeToPlace.gameObject.SetActive(true);
+            yield return StartCoroutine(ShowBoxePlace());
+        }
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && BoxeToPlace != null)
+        if (Input.GetMouseButtonDown(0) && BoxeToPlace != null && IsWait)
         {
-#if !UNITY_EDITOR
-            if (Input.GetTouch(0).phase != TouchPhase.Began)
-                return;
-#endif
+            BoxeToPlace.gameObject.SetActive(false);
+
             GameObject NewBoxe = Instantiate(BoxeToCreateBlue,
             BoxeToPlace.position,
             Quaternion.identity);
             NewBoxe.transform.SetParent(AllBoxesBlue.transform);
 
             TakePosition(NewBoxe.transform.position);
+
+            IsWait = false;
 
             for (int i = 0; i < 7; i++)
                 for (int j = 0; j < 6; j++)
@@ -83,15 +88,28 @@ public class GameController : MonoBehaviour
         if (!IsWin && newY == 6)
         {
             IsWin = true;
-            StopCoroutine(showBoxePlace);
+            StopAllCoroutines();
             Destroy(BoxeToPlace.gameObject);
             Winner.text = "Blue won!";
         }
+
+        if (TimerTime < 1)
+            Destroy(TimerText.gameObject);
+        else
+        {
+            TimerText.text = Math.Round(TimerTime).ToString();
+            TimerTime -= Time.deltaTime;
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3);
     }
 
     IEnumerator ShowBoxePlace()
     {
-        while (true)
+        while (IsWait)
         {
             SpawnPosition();
 
