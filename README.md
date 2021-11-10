@@ -10,6 +10,5 @@
 
 **Reach Top:** - это мини игра в которой нужно, точно подгадать момент и поставить коробку, чтобы сложить свои коробки в стопку и достигнуть первым вершины.
 
-![Иллюстрации к мини игре](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/Reach%20Top/pictures/reach_top(1).png)
-![Иллюстрации к мини игре](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/Reach%20Top/pictures/reach_top(2).png)
+![Иллюстрации к мини игре](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/Reach%20Top/pictures/reach_top(1).png)![Иллюстрации к мини игре](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/Reach%20Top/pictures/reach_top(2).png)
 ![Иллюстрации к мини игре](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/Reach%20Top/pictures/reach_top(3).png)
