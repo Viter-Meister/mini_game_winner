@@ -47,7 +47,7 @@ public class GameControllerRed : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && BoxeToPlace != null && IsWait)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && BoxeToPlace != null && IsWait)
         {
             BoxeToPlace.gameObject.SetActive(false);
             IsWait = false;
