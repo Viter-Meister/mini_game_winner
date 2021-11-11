@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class Timer : MonoBehaviour
+public class ReachTopTimer : MonoBehaviour
 {
     public float TimerTime = 3;
     public Text TimerText;

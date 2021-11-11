@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Finish : MonoBehaviour
+public class ReachTopFinish : MonoBehaviour
 {
     public GameControllerBlue playerBlue;
     public GameControllerRed playerRed;
