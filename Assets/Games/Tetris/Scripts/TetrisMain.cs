@@ -1,7 +1,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class Main : MonoBehaviour
+public class TetrisMain : MonoBehaviour
 {
     const int Length1 = 15;
     const int Length2 = 24;
@@ -25,7 +25,7 @@ public class Main : MonoBehaviour
 
     private void Update()
     {
-        speed = 0.2f + Input.GetAxis("Vertical2") / 8;
+        speed = 0.2f + Input.GetAxis("TetrisDown") / 8;
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
     }
@@ -34,8 +34,8 @@ public class Main : MonoBehaviour
     {
         CheckRemoveLayers();
         GameObject Brick = Instantiate(Bricks, spawn.position, transform.rotation);
-        Brick.GetComponent<Brick>().box = box;
-        Brick.GetComponent<Brick>().main = gameObject.GetComponent<Main>();
+        Brick.GetComponent<TetrisBrick>().box = box;
+        Brick.GetComponent<TetrisBrick>().main = gameObject.GetComponent<TetrisMain>();
     }
 
     private void CheckRemoveLayers()

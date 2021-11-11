@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Brick : MonoBehaviour
+public class TetrisBrick : MonoBehaviour
 {
     const int Length = 4;
-    public Main main;
+    public TetrisMain main;
     private bool[,] bricks = new bool[Length, Length];
     public bool[,] box;
     public GameObject block;
@@ -64,7 +64,7 @@ public class Brick : MonoBehaviour
         }
         color = colors[Random.Range(0, colors.Length)];
         DrawBrick();
-        Invoke(nameof(Movement), Main.speed);
+        Invoke(nameof(Movement), TetrisMain.speed);
     }
 
     public bool Assert(int leftright, int up, bool[,] element)
@@ -100,7 +100,7 @@ public class Brick : MonoBehaviour
             }
                 
         if (isTrue)
-            Invoke(nameof(Movement), Main.speed);
+            Invoke(nameof(Movement), TetrisMain.speed);
         else
         {
             sleep = true;
@@ -119,7 +119,7 @@ public class Brick : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Vertical1") && !sleep)
+        if (Input.GetButtonDown("TetrisRotate") && !sleep)
             Rotate();
     }
 
