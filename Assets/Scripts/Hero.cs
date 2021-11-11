@@ -40,7 +40,7 @@ public class Hero : MonoBehaviour
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = cat_sits;
             this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            transform.position = new Vector3(-0.99f, 0.22f, 0);
+            transform.position = new Vector3(-1f, 0.23f, 0);
         }
     }
 }
