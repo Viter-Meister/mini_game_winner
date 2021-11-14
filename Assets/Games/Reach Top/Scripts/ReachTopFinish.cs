@@ -12,23 +12,20 @@ public class ReachTopFinish : MonoBehaviour
 
     void Update()
     {
-        if (!IsWin && playerBlue.newY == 6)
-        {
-            IsWin = true;
-            playerBlue.StopAllCoroutines();
-            playerRed.StopAllCoroutines();
-            Destroy(playerBlue.BoxeToPlace.gameObject);
-            Destroy(playerRed.BoxeToPlace.gameObject);
+        if (IsWin)
+            return;
+        if (playerBlue.newY < 6 && playerRed.newY < 6)
+            return;
+
+        IsWin = true;
+        playerBlue.StopAllCoroutines();
+        playerRed.StopAllCoroutines();
+        Destroy(playerBlue.BoxeToPlace.gameObject);
+        Destroy(playerRed.BoxeToPlace.gameObject);
+
+        if (playerBlue.newY == 6)
             Winner.text = "Blue won!";
-        }
-        if (!IsWin && playerRed.newY == 6)
-        {
-            IsWin = true;
-            playerBlue.StopAllCoroutines();
-            playerRed.StopAllCoroutines();
-            Destroy(playerBlue.BoxeToPlace.gameObject);
-            Destroy(playerRed.BoxeToPlace.gameObject);
+        else
             Winner.text = "Red won!";
-        }
     }
 }

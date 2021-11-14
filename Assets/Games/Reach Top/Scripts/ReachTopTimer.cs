@@ -9,7 +9,7 @@ public class ReachTopTimer : MonoBehaviour
 
     void Update()
     {
-        if (TimerTime < 1)
+        if (TimerTime < 0.5f)
             Destroy(TimerText.gameObject);
         else
         {

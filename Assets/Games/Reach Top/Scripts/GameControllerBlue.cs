@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameControllerBlue : MonoBehaviour
 {
-    public float BoxeChangePlaceSpeed = 0.13f;
+    public float BoxeChangePlaceSpeed;
     public Transform BoxeToPlace;
     public GameObject BoxeToCreate, AllBoxes;
 
@@ -47,7 +47,7 @@ public class GameControllerBlue : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && BoxeToPlace != null && IsWait)
+        if (Input.GetKeyDown(KeyCode.Space) && BoxeToPlace != null && IsWait)
         {
             BoxeToPlace.gameObject.SetActive(false);
             IsWait = false;
@@ -64,7 +64,7 @@ public class GameControllerBlue : MonoBehaviour
 
             ChangeSpawnPosition();
 
-            ChangeSpeed(Convert.ToInt32(Math.Truncate(newY)));
+            ChangeSpeed((int)Math.Truncate(newY));
 
             SpawnPosition();
         }
@@ -175,15 +175,7 @@ public class GameControllerBlue : MonoBehaviour
 
     private void ChangeSpeed(int i)
     {
-        switch (i)
-        {
-            case 1: BoxeChangePlaceSpeed = 0.1f; break;
-            case 2: BoxeChangePlaceSpeed = 0.1f; break;
-            case 3: BoxeChangePlaceSpeed = 0.07f; break;
-            case 4: BoxeChangePlaceSpeed = 0.07f; break;
-            case 5: BoxeChangePlaceSpeed = 0.05f; break;
-            case 6: BoxeChangePlaceSpeed = 0.03f; break;
-        }
+        BoxeChangePlaceSpeed = 0.13f - i * 0.1f / 6;
     }
 
     void SetNewY()
