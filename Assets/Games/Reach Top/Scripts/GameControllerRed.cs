@@ -15,12 +15,12 @@ public class GameControllerRed : MonoBehaviour
     private bool IsWait = false;
 
     private Vector2[] AllSpawnPosition = new Vector2[6] {
-        new Vector2(3, -4),
-        new Vector2(4, -4),
-        new Vector2(5, -4),
-        new Vector2(6, -4),
-        new Vector2(7, -4),
-        new Vector2(8, -4),
+        new Vector2(2, -5),
+        new Vector2(3, -5),
+        new Vector2(4, -5),
+        new Vector2(5, -5),
+        new Vector2(6, -5),
+        new Vector2(7, -5),
     };
 
     private int[,] AllHeldPosition = new int[7, 6]
@@ -110,7 +110,7 @@ public class GameControllerRed : MonoBehaviour
     {
         switch (pos.x)
         {
-            case 3:
+            case 2:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 0] == 0)
@@ -120,7 +120,7 @@ public class GameControllerRed : MonoBehaviour
                         }
                     break;
                 }
-            case 4:
+            case 3:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 1] == 0)
@@ -130,7 +130,7 @@ public class GameControllerRed : MonoBehaviour
                         }
                     break;
                 }
-            case 5:
+            case 4:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 2] == 0)
@@ -140,7 +140,7 @@ public class GameControllerRed : MonoBehaviour
                         }
                     break;
                 }
-            case 6:
+            case 5:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 3] == 0)
@@ -150,7 +150,7 @@ public class GameControllerRed : MonoBehaviour
                         }
                     break;
                 }
-            case 7:
+            case 6:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 4] == 0)
@@ -160,7 +160,7 @@ public class GameControllerRed : MonoBehaviour
                         }
                     break;
                 }
-            case 8:
+            case 7:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 5] == 0)
