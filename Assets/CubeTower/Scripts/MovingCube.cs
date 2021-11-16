@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class MovingCube : MonoBehaviour
 {
-    private float moveSpeed = 1f;
+    public static MovingCube CurrentCube { get; private set; }
+
+    [SerializeField]
+    private float moveSpeed = 2f;
+
+    private void OnEnable()
+    {
+        CurrentCube = this;
+    }
+
+    internal void Stop()
+    {
+        moveSpeed = 0;
+    }
 
     private void Update()
     {
