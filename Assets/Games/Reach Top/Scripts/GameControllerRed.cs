@@ -72,7 +72,7 @@ public class GameControllerRed : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2.5f);
     }
 
     IEnumerator ShowBoxePlace()
