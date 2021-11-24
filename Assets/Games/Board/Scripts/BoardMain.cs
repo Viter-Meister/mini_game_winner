@@ -20,7 +20,7 @@ public class BoardMain : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            players[i] = Instantiate(player, spawns[0]);
+            players[i] = Instantiate(player, spawns[0].position + new Vector3(0.07f * i, 0), transform.rotation);
             players[i].GetComponent<SpriteRenderer>().color = colors[i];
         }
     }
@@ -51,7 +51,7 @@ public class BoardMain : MonoBehaviour
         {
             if (i > 30)
                 break;
-            players[player].transform.position = spawns[i].position;
+            players[player].transform.position = spawns[i].position + new Vector3(0.07f * player, 0);
             yield return new WaitForSeconds(0.2f);
         }
         
