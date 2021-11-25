@@ -8,7 +8,10 @@ public class GameManage : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            MovingCube.CurrentCube.Stop();
+            if (MovingCube.CurrentCube != null)
+                MovingCube.CurrentCube.Stop();
+
+            FindObjectOfType<CubeSpawner>().SpawnCube();
         }
     }
 }

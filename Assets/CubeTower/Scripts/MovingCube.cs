@@ -25,6 +25,7 @@ public class MovingCube : MonoBehaviour
 
         float direction = hangover > 0 ? 1f : -1f;
         SplitCubeOnZ(hangover, direction);
+
     }
 
     private void SplitCubeOnZ(float hangover, float direction)
@@ -36,7 +37,7 @@ public class MovingCube : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, newSize);
         transform.position = new Vector3(transform.position.x, transform.position.y, newZPosition);
 
-        float cubeEdge = transform.position.z + newSize / 2f * direction;
+        float cubeEdge = transform.position.z + (newSize / 2f * direction);
         float fallingBlockZPosition = cubeEdge + fallingBlockSize / 2f * direction;
 
         SpawnDropCube(fallingBlockZPosition, fallingBlockSize);
