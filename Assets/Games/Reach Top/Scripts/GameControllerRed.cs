@@ -15,12 +15,12 @@ public class GameControllerRed : MonoBehaviour
     private bool IsWait = false;
 
     private Vector2[] AllSpawnPosition = new Vector2[6] {
-        new Vector2(2, -5),
-        new Vector2(3, -5),
-        new Vector2(4, -5),
-        new Vector2(5, -5),
-        new Vector2(6, -5),
-        new Vector2(7, -5),
+        new Vector2(2, -5.75f),
+        new Vector2(3, -5.75f),
+        new Vector2(4, -5.75f),
+        new Vector2(5, -5.75f),
+        new Vector2(6, -5.75f),
+        new Vector2(7, -5.75f),
     };
 
     private int[,] AllHeldPosition = new int[7, 6]
@@ -38,7 +38,7 @@ public class GameControllerRed : MonoBehaviour
     {
         while (true)
         {
-            yield return StartCoroutine(Wait());
+            yield return new WaitForSeconds(2.5f);
             IsWait = true;
             BoxeToPlace.gameObject.SetActive(true);
             yield return StartCoroutine(ShowBoxePlace());
@@ -68,11 +68,6 @@ public class GameControllerRed : MonoBehaviour
 
             SpawnPosition();
         }
-    }
-
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(2);
     }
 
     IEnumerator ShowBoxePlace()

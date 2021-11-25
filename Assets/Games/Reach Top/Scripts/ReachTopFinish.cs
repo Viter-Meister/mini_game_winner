@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ReachTopFinish : MonoBehaviour
 {
@@ -27,5 +28,12 @@ public class ReachTopFinish : MonoBehaviour
             Winner.text = "Blue won!";
         else
             Winner.text = "Red won!";
+
+        Invoke("GoToMenue", 2f);
+    }
+
+    void GoToMenue()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
