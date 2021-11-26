@@ -6,9 +6,12 @@
 
 Цель нашего проекта заключается прежде всего, в создание программного продукта, служащего для развлечения пользователей и предоставлении средства для отдыха и приятного времяпрепровождения. А также в приобщение участников команды к сфере геймдева, т. е. изучение основ разработки игр. А выбранный нами жанр, будучи сравнительно простым в реализации, дает широкую свободу для творчества.
 
-# Mini game:
+# Mini games:
 
 **Reach Top:** - это мини игра в которой нужно, точно подгадать момент и поставить коробку, чтобы сложить свои коробки в стопку и достигнуть первым вершины.
 
-![Иллюстрации к мини игре](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/Games/Reach%20Top/pictures/reach_top(1).png)   ![Иллюстрации к мини игре](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/Games/Reach%20Top/pictures/reach_top(2).png)
-                                      ![Иллюстрации к мини игре](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/Games/Reach%20Top/pictures/reach_top(3).png)
+![Иллюстрация к мини игре Reach Top](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/ReachTop.png)
+
+**Tetris:** - это мини игра, где случайные фигурки тетрамино падают сверху на прямоугольное поле. В полёте игрок может поворачивать фигурку и двигать её по горизонтали.
+
+![Иллюстрация к мини игре Tetris](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/Tetris.png)
