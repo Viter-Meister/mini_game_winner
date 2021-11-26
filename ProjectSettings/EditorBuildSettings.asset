@@ -6,14 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path:
+    path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 2a0f1b5d867eee7408c8415da1713435
-  - enabled: 1
-    path: Assets/Scenes/reach_top.unity
-    guid: fcf9f973443df7d4f93ccbcd9a1f1263
   - enabled: 1
     path: Assets/Scenes/Tetris.unity
     guid: 2cda990e2423bbf4892e6590ba056729
