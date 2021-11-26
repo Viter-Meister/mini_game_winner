@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using System.Linq;
 using TMPro;
 
@@ -36,9 +37,14 @@ public class MainMenu : MonoBehaviour
         audioSource = click.GetComponent<AudioSource>();
     }
 
-    public void Singleplayer() //нажали на кнопку "Одиночный режим"
+    public void ReachTop()
     {
-        menu.SetActive(false);
+        SceneManager.LoadScene("reach_top");
+    }
+
+    public void Tetris()
+    {
+        SceneManager.LoadScene("Tetris");
     }
 
     public void AudioPlay()

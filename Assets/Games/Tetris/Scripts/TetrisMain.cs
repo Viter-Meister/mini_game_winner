@@ -79,6 +79,6 @@ public class TetrisMain : MonoBehaviour
 
     public void GameIsOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("MainMenu");
     }
 }
