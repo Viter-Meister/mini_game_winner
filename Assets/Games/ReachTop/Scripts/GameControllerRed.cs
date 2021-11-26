@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class GameControllerBlue : MonoBehaviour
+public class GameControllerRed : MonoBehaviour
 {
     public float BoxeChangePlaceSpeed;
     public Transform BoxeToPlace;
@@ -15,12 +15,12 @@ public class GameControllerBlue : MonoBehaviour
     private bool IsWait = false;
 
     private Vector2[] AllSpawnPosition = new Vector2[6] {
-        new Vector2(-7, -6.65f),
-        new Vector2(-6, -6.65f),
-        new Vector2(-5, -6.65f),
-        new Vector2(-4, -6.65f),
-        new Vector2(-3, -6.65f),
-        new Vector2(-2, -6.65f),
+        new Vector2(2, -6.65f),
+        new Vector2(3, -6.65f),
+        new Vector2(4, -6.65f),
+        new Vector2(5, -6.65f),
+        new Vector2(6, -6.65f),
+        new Vector2(7, -6.65f),
     };
 
     private int[,] AllHeldPosition = new int[7, 6]
@@ -47,7 +47,7 @@ public class GameControllerBlue : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && BoxeToPlace != null && IsWait)
+        if (Input.GetKeyDown(KeyCode.Return) && BoxeToPlace != null && IsWait)
         {
             BoxeToPlace.gameObject.SetActive(false);
             IsWait = false;
@@ -105,7 +105,7 @@ public class GameControllerBlue : MonoBehaviour
     {
         switch (pos.x)
         {
-            case -7:
+            case 2:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 0] == 0)
@@ -115,7 +115,7 @@ public class GameControllerBlue : MonoBehaviour
                         }
                     break;
                 }
-            case -6:
+            case 3:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 1] == 0)
@@ -125,7 +125,7 @@ public class GameControllerBlue : MonoBehaviour
                         }
                     break;
                 }
-            case -5:
+            case 4:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 2] == 0)
@@ -135,7 +135,7 @@ public class GameControllerBlue : MonoBehaviour
                         }
                     break;
                 }
-            case -4:
+            case 5:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 3] == 0)
@@ -145,7 +145,7 @@ public class GameControllerBlue : MonoBehaviour
                         }
                     break;
                 }
-            case -3:
+            case 6:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 4] == 0)
@@ -155,7 +155,7 @@ public class GameControllerBlue : MonoBehaviour
                         }
                     break;
                 }
-            case -2:
+            case 7:
                 {
                     for (int i = 0; i < 7; i++)
                         if (AllHeldPosition[i, 5] == 0)
@@ -168,7 +168,7 @@ public class GameControllerBlue : MonoBehaviour
         }
     }
 
-    private void ChangeSpeed(int i)
+    private void ChangeSpeed(float i)
     {
         BoxeChangePlaceSpeed = 0.13f - i * 0.1f / 6;
     }
