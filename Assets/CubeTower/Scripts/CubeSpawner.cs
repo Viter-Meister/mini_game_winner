@@ -13,10 +13,9 @@ public class CubeSpawner : MonoBehaviour
 
         if (MovingCube.LastCube != null && MovingCube.LastCube.gameObject != GameObject.Find("Start"))
         {
-            cube.transform.position = new Vector3(transform.position.x, 
-                MovingCube.LastCube.transform.position.y + cubePrefab.transform.localScale.y, 
-                transform.position.z);
-
+            cube.transform.position = new Vector3(transform.position.x,
+            MovingCube.LastCube.transform.position.y + cubePrefab.transform.localScale.y,
+            transform.position.z);
         }
         else
         {
