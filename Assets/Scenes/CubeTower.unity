@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 167411293}
   - component: {fileID: 167411292}
   m_Layer: 0
-  m_Name: Spawner Z
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6bcd053adc15c84ba38a68e25959ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 198172858, guid: 582aed0d891f74842bc307952aafb60a, type: 3}
+  cubePrefab: {fileID: 6437226837250930767, guid: 582aed0d891f74842bc307952aafb60a, type: 3}
+  StartCube: {fileID: 624992357}
+  isEnd: 0
 --- !u!4 &167411293
 Transform:
   m_ObjectHideFlags: 0
@@ -160,12 +162,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167411291}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -7.65}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: -7}
   m_LocalScale: {x: 3, y: 0.5, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 4
+=======
+  m_RootOrder: 3
+>>>>>>> 9fe4774019e37b512d1fbe80c1d408aae6b48b38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624992357
 GameObject:
@@ -178,28 +184,14 @@ GameObject:
   - component: {fileID: 624992361}
   - component: {fileID: 624992360}
   - component: {fileID: 624992359}
-  - component: {fileID: 624992358}
   - component: {fileID: 624992362}
   m_Layer: 0
-  m_Name: Start
+  m_Name: StartCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &624992358
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624992357}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &624992359
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -275,6 +267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeef8cd6369228b41874be4963ecb5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 167411292}
+  LastCube: {fileID: 0}
+  isStop: 1
   moveSpeed: 0
 --- !u!1 &705507993
 GameObject:
@@ -445,12 +440,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.07428904, y: -0.91772825, z: 0.16347578, w: 0.3543047}
-  m_LocalPosition: {x: 7.61, y: 7.5, z: 8.37}
+  m_LocalRotation: {x: 0.066452265, y: -0.9098438, z: 0.16042997, w: 0.37686962}
+  m_LocalPosition: {x: 7.5, y: 8, z: 7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+<<<<<<< HEAD
   m_LocalEulerAnglesHint: {x: 20.652, y: -138.009, z: -1.256}
 --- !u!1 &1844249893
 GameObject:
@@ -556,3 +552,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 582aed0d891f74842bc307952aafb60a, type: 3}
+=======
+  m_LocalEulerAnglesHint: {x: 20, y: -135, z: 0}
+>>>>>>> 9fe4774019e37b512d1fbe80c1d408aae6b48b38
