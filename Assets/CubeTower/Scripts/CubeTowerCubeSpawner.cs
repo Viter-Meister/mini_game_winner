@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CubeTowerCubeSpawner : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class CubeTowerCubeSpawner : MonoBehaviour
         cube.GetComponent<CubeTowerMovingCube>().spawner = gameObject.GetComponent<CubeTowerCubeSpawner>();
         cube.GetComponent<CubeTowerMovingCube>().LastCube = LastCube.transform;
         cube.transform.localScale = LastCube.transform.localScale;
+        cube.GetComponent<CubeTowerMovingCube>().moveSpeed += level;
         LastCube = cube;
         //transform.position = level % 2 == 0 ? pos1 : pos2;
         cube.transform.position = new Vector3
@@ -43,9 +45,21 @@ public class CubeTowerCubeSpawner : MonoBehaviour
         level++;
     }
 
+    public void End()
+    {
+        isEnd = true;
+        Invoke("BackToMenu", 2);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position, cubePrefab.transform.localScale);
+    }
+
+    private void BackToMenu()
+    {
+        Debug.Log("Go to menu");
+        //SceneManager.LoadScene("MainMenu");
     }
 }
