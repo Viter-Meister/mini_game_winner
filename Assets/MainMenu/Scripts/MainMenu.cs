@@ -37,14 +37,24 @@ public class MainMenu : MonoBehaviour
         audioSource = click.GetComponent<AudioSource>();
     }
 
-    public void ReachTop()
+    public void Play()
     {
-        SceneManager.LoadScene("reach_top");
+        SceneManager.LoadScene("Board");
     }
 
     public void Tetris()
     {
         SceneManager.LoadScene("Tetris");
+    }
+
+    public void ReachTop()
+    {
+        SceneManager.LoadScene("ReachTop");
+    }
+
+    public void CubeTower()
+    {
+        SceneManager.LoadScene("CubeTower");
     }
 
     public void AudioPlay()
