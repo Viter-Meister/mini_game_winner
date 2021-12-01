@@ -3,7 +3,10 @@ guid: b6bcd053adc15c84ba38a68e25959ac4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cubePrefab: {instanceID: 0}
+  - StartCube: {instanceID: 0}
+  - ScoreText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

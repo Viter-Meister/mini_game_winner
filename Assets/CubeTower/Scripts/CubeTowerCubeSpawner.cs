@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CubeTowerCubeSpawner : MonoBehaviour
@@ -15,6 +16,9 @@ public class CubeTowerCubeSpawner : MonoBehaviour
 
     public bool isEnd = false;
 
+    public int Score = 0;
+    public GameObject ScoreText;
+
     private void Start()
     {
         LastCube = StartCube;
@@ -27,6 +31,9 @@ public class CubeTowerCubeSpawner : MonoBehaviour
             LastCube.GetComponent<CubeTowerMovingCube>().Stop();
             if (!isEnd)
                 SpawnCube();
+
+            ScoreText.GetComponent<Text>().text = "Score: " + Score.ToString();
+            Score++;
         }
     }
 
