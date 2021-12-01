@@ -16,3 +16,12 @@
 **Tetris** - это мини игра, где случайные фигурки тетрамино падают сверху на прямоугольное поле. В полёте игрок может поворачивать фигурку и двигать её по горизонтали.
 
 ![Иллюстрация к мини игре Tetris](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/Tetris.png)
+
+**Pong** - аркадная игра, где могут участвовать до 2-х человек, суть которой заключается в том, чтобы с помощью передвижной панели отбивать мячик.
+
+![Иллюстрация к мини игре Pong](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/Pong.png)
+
+
+**Cube Tower** -мини игра, в которой нужно размещать блоки щелчком, так чтобы построить, как можно более высокую башню.
+
+![Иллюстрация к мини игре Pong](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/CubeTower.png)
