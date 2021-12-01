@@ -5,7 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 2a0f1b5d867eee7408c8415da1713435
+  - enabled: 1
+    path: Assets/Scenes/Board.unity
+    guid: 69970a198ae4bc446a620858b311ee4b
   - enabled: 1
     path: Assets/Scenes/Tetris.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/ReachTop.unity
+    guid: fcf9f973443df7d4f93ccbcd9a1f1263
+  - enabled: 1
+    path: Assets/Scenes/CubeTower.unity
+    guid: 29be7a27fcf815345a0ddb0a82ac57ae
+  - enabled: 1
+    path: Assets/Scenes/Pong.unity
+    guid: 534419eb313bced4d9c06071979de3cc
   m_configObjects: {}
