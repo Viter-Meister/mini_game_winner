@@ -13,7 +13,7 @@ public class BoardMain : MonoBehaviour
 
     void Start()
     {
-        SpawnPlayers(2);
+        SpawnPlayers(1);
     }
 
     public void SpawnPlayers(int count)
