@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TetrisMain : MonoBehaviour
 {
+    public TextMesh Text;
     const int Length1 = 15;
     const int Length2 = 24;
     public bool[,] box = new bool[Length1, Length2];
@@ -26,8 +27,6 @@ public class TetrisMain : MonoBehaviour
     private void Update()
     {
         speed = 0.2f + Input.GetAxis("TetrisDown") / 8;
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
     }
 
     public void SpawnBrick()
@@ -74,11 +73,12 @@ public class TetrisMain : MonoBehaviour
         for (int i = 0; i < bricks.Length; i++)
             if (bricks[i].transform.childCount == 0)
                 Destroy(bricks[i]);
+        Text.text = (int.Parse(Text.text) + 1).ToString();
         CheckRemoveLayers();
     }
 
     public void GameIsOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("MainMenu");
     }
 }

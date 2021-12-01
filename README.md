@@ -1,4 +1,5 @@
 # Mini game winner
+![Логотип](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/logo.png)
 
 **Mini game winner** – это развлекательная аркада с примесью веселья, сражений и множества мини-игр, где вы сможете просто от души повеселиться и хорошо провести время, как с друзьями, так и самостоятельно.
 
@@ -6,9 +7,21 @@
 
 Цель нашего проекта заключается прежде всего, в создание программного продукта, служащего для развлечения пользователей и предоставлении средства для отдыха и приятного времяпрепровождения. А также в приобщение участников команды к сфере геймдева, т. е. изучение основ разработки игр. А выбранный нами жанр, будучи сравнительно простым в реализации, дает широкую свободу для творчества.
 
-# Mini game:
+# Mini games:
 
-**Reach Top:** - это мини игра в которой нужно, точно подгадать момент и поставить коробку, чтобы сложить свои коробки в стопку и достигнуть первым вершины.
+**Reach Top** - это мини игра в которой нужно, точно подгадать момент и поставить коробку, чтобы сложить свои коробки в стопку и достигнуть первым вершины.
 
-![Иллюстрации к мини игре](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/Reach%20Top/pictures/reach_top(1).png)![Иллюстрации к мини игре](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/Reach%20Top/pictures/reach_top(2).png)
-![Иллюстрации к мини игре](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/Reach%20Top/pictures/reach_top(3).png)
+![Иллюстрация к мини игре Reach Top](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/ReachTop.png)
+
+**Tetris** - это мини игра, где случайные фигурки тетрамино падают сверху на прямоугольное поле. В полёте игрок может поворачивать фигурку и двигать её по горизонтали.
+
+![Иллюстрация к мини игре Tetris](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/Tetris.png)
+
+**Pong** - аркадная игра, где могут участвовать до 2-х человек, суть которой заключается в том, чтобы с помощью передвижной панели отбивать мячик.
+
+![Иллюстрация к мини игре Pong](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/Pong.png)
+
+
+**Cube Tower** -мини игра, в которой нужно размещать блоки щелчком, так чтобы построить, как можно более высокую башню.
+
+![Иллюстрация к мини игре CubeTower](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/CubeTower.png)
