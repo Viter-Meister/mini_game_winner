@@ -24,4 +24,4 @@
 
 **Cube Tower** -мини игра, в которой нужно размещать блоки щелчком, так чтобы построить, как можно более высокую башню.
 
-![Иллюстрация к мини игре Pong](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/CubeTower.png)
+![Иллюстрация к мини игре CubeTower](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/CubeTower.png)
