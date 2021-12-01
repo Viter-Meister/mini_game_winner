@@ -28,7 +28,12 @@ public class CubeTowerMovingCube : MonoBehaviour
 
         if (left2 > right1 || right2 < left1)
         {
+            spawner.Score--;
+
             spawner.isEnd = true;
+
+            spawner.End();
+
             Destroy(gameObject);
             return;
         }
