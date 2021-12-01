@@ -29,7 +29,7 @@ public class ReachTopFinish : MonoBehaviour
         else
             Winner.text = "Red won!";
 
-        Invoke("GoToMenue", 2f);
+        Invoke("GoToMenue", 2);
     }
 
     void GoToMenue()

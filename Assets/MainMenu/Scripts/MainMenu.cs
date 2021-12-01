@@ -57,6 +57,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("CubeTower");
     }
 
+    public void Pong()
+    {
+        SceneManager.LoadScene("Pong");
+    }
+
     public void AudioPlay()
     {
         audioSource.Play();

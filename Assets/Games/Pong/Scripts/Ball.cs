@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
@@ -105,6 +106,7 @@ IEnumerator Coroutine()
         {
             R_03.SetActive(true);
             R_W.SetActive(true);
+            Invoke("EndGame", 2);
         }
         if ((transform.position.x < -11) && (Right_Count == 0))
         {
@@ -122,6 +124,7 @@ IEnumerator Coroutine()
         {
             L_03.SetActive(true);
             L_W.SetActive(true);
+            Invoke("EndGame", 2);
         }
     }    
 
@@ -135,5 +138,10 @@ IEnumerator Coroutine()
         {
             direction.y = -direction.y;
         }
+    }
+
+    private void EndGame()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
