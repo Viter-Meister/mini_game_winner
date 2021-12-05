@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoardMain : MonoBehaviour
 {
@@ -23,6 +24,16 @@ public class BoardMain : MonoBehaviour
             players[i] = Instantiate(player, spawns[0].position + new Vector3(0.07f * i, 0), transform.rotation);
             players[i].GetComponent<SpriteRenderer>().color = colors[i];
         }
+    }
+
+    public void AudioPlay()
+    {
+        GameObject.Find("Click(Clone)").GetComponent<AudioSource>().Play();
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Update()
