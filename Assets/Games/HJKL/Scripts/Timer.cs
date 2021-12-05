@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {   
@@ -14,6 +15,6 @@ public class Timer : MonoBehaviour
     IEnumerator GameTimer(float minutes)
     {
         yield return new WaitForSeconds(minutes * 60);
-        print(minutes + " minutes was passed");
+        SceneManager.LoadScene("MainMenu");
     }
 }
