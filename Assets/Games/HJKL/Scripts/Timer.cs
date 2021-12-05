@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {   
-    public float TimerTime = 30;
+    public float TimerTime;
 
     public Text TimerText;
 
@@ -20,11 +20,10 @@ public class Timer : MonoBehaviour
     {
         if (TimerTime < 0)
         {
-            Stop();
-
-            StartCoroutine(Wait());
-
             SceneManager.LoadScene("MainMenu");
+            //Stop();
+
+            //StartCoroutine(Wait());
         }
         else
         {
@@ -35,7 +34,7 @@ public class Timer : MonoBehaviour
 
     private void Stop()
     {
-        Destroy(GameObject.Find("right_LOVE"));
+        /*Destroy(GameObject.Find("right_LOVE"));
         Destroy(GameObject.Find("left_LOVE"));
         Destroy(GameObject.Find("right_LOVE_1"));
         Destroy(GameObject.Find("left_LOVE_1"));
@@ -54,13 +53,14 @@ public class Timer : MonoBehaviour
         Destroy(GameObject.Find("bottom_CROSS"));
 
         Destroy(lcm.gameObject);
-        Destroy(hero.gameObject);
+        Destroy(hero.gameObject);*/
 
         FinalScore.text = "Score: " + (hero.loves_num - hero.bads_num - lcm.fails_num).ToString();
     }
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("MainMenu");
     }
 }
