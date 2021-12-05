@@ -24,10 +24,10 @@ public class Hero : MonoBehaviour
 
     Vector3 originscale = new Vector3(0.6186985f, 0.6186985f, 0.0f);
 
-    public Text loves; int loves_num;
+    public Text loves; public int loves_num;
     // public Text bonus1; int bonus1_num;
     // public Text bonus2; int bonus2_num;
-    public Text bads; int bads_num;
+    public Text bads; public int bads_num;
 
     void Start()
     {

@@ -42,7 +42,7 @@ public class Loves_crosses_mover : MonoBehaviour
     Vector3 originscale = new Vector3(0.6186985f, 0.6186985f, 0.0f);
     Vector3 minscale    = new Vector3(0.0f, 0.0f, 0.0f);
 
-    public Text fails; int fails_num;
+    public Text fails; public int fails_num;
 
     void FixedUpdate()
     {   

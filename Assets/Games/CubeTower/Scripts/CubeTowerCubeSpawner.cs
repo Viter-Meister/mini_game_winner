@@ -55,7 +55,7 @@ public class CubeTowerCubeSpawner : MonoBehaviour
     public void End()
     {
         isEnd = true;
-        Invoke("BackToMenu", 2);
+        Invoke("BackToMenu", 3);
     }
 
     private void OnDrawGizmos()

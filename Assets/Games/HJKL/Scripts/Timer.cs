@@ -2,19 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {   
-    public float minutes = 0.5f;
+    public float TimerTime = 30;
 
-    void Start()
+    public Text TimerText;
+
+    public Text FinalScore;
+
+    public Loves_crosses_mover lcm;
+
+    public Hero hero;
+
+    private void Update()
     {
-        StartCoroutine(GameTimer(minutes)); // set minutes for a game here
+        if (TimerTime < 0)
+        {
+            Stop();
+
+            StartCoroutine(Wait());
+
+            SceneManager.LoadScene("MainMenu");
+        }
+        else
+        {
+            TimerText.text = ": ........" + System.Math.Round(TimerTime).ToString();
+            TimerTime -= Time.deltaTime;
+        }
     }
 
-    IEnumerator GameTimer(float minutes)
+    private void Stop()
     {
-        yield return new WaitForSeconds(minutes * 60);
-        SceneManager.LoadScene("MainMenu");
+        Destroy(GameObject.Find("right_LOVE"));
+        Destroy(GameObject.Find("left_LOVE"));
+        Destroy(GameObject.Find("right_LOVE_1"));
+        Destroy(GameObject.Find("left_LOVE_1"));
+        Destroy(GameObject.Find("right_LOVE_2"));
+        Destroy(GameObject.Find("left_LOVE_2"));
+        Destroy(GameObject.Find("right_CROSS"));
+        Destroy(GameObject.Find("left_CROSS"));
+
+        Destroy(GameObject.Find("top_LOVE"));
+        Destroy(GameObject.Find("bottom_LOVE"));
+        Destroy(GameObject.Find("top_LOVE_1"));
+        Destroy(GameObject.Find("bottom_LOVE_1"));
+        Destroy(GameObject.Find("top_LOVE_2"));
+        Destroy(GameObject.Find("bottom_LOVE_2"));
+        Destroy(GameObject.Find("top_CROSS"));
+        Destroy(GameObject.Find("bottom_CROSS"));
+
+        Destroy(lcm.gameObject);
+        Destroy(hero.gameObject);
+
+        FinalScore.text = "Score: " + (hero.loves_num - hero.bads_num - lcm.fails_num).ToString();
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3);
     }
 }
