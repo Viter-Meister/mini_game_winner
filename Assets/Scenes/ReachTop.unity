@@ -297,10 +297,10 @@ RectTransform:
   m_Father: {fileID: 431096203}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.68, y: 0.5827407}
-  m_AnchorMax: {x: 0.7783543, y: 0.66270375}
-  m_AnchoredPosition: {x: 1, y: 3.5}
-  m_SizeDelta: {x: 1.7700195, y: 0.13999939}
+  m_AnchorMin: {x: 0.66300005, y: 0.5855185}
+  m_AnchorMax: {x: 0.7624792, y: 0.66640747}
+  m_AnchoredPosition: {x: 1, y: 0}
+  m_SizeDelta: {x: -0.22998047, y: -0.8600006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224808408
 MonoBehaviour:
@@ -323,7 +323,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_Font: {fileID: 12800000, guid: 53f60ab42b3af9f4aa5e272036fbe778, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -1055,10 +1055,10 @@ RectTransform:
   m_Father: {fileID: 431096203}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.36100003, y: 0.7906296}
-  m_AnchorMax: {x: 0.63939583, y: 0.93614817}
-  m_AnchoredPosition: {x: -0.76000977, y: 1.2869873}
-  m_SizeDelta: {x: -0.14001465, y: 2.5750008}
+  m_AnchorMin: {x: 0.35900003, y: 0.80911106}
+  m_AnchorMax: {x: 0.64000005, y: 0.95740736}
+  m_AnchoredPosition: {x: 0.73999023, y: -0.5}
+  m_SizeDelta: {x: -5.1400146, y: -0.42499924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1159563069
 MonoBehaviour:
@@ -1832,10 +1832,10 @@ RectTransform:
   m_Father: {fileID: 431096203}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.22200002, y: 0.5827407}
-  m_AnchorMax: {x: 0.31935415, y: 0.66270375}
-  m_AnchoredPosition: {x: -1.500061, y: 3.5}
-  m_SizeDelta: {x: 2.769989, y: 0.14001465}
+  m_AnchorMin: {x: 0.24152085, y: 0.5827407}
+  m_AnchorMax: {x: 0.34152085, y: 0.66640747}
+  m_AnchoredPosition: {x: -0.5, y: 1.5}
+  m_SizeDelta: {x: -2.230011, y: -3.8599854}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2059603564
 MonoBehaviour:
@@ -1858,7 +1858,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_Font: {fileID: 12800000, guid: 53f60ab42b3af9f4aa5e272036fbe778, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
