@@ -948,7 +948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &281562404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2482,7 +2482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4f14d5a0bce9548b78dc7845e2677b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimerTime: 32
+  TimerTime: 30
   TimerText: {fileID: 549542417}
   FinalScore: {fileID: 245665609}
   lcm: {fileID: 1004614759}
@@ -2742,7 +2742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.7, y: 2.9}
+  m_AnchoredPosition: {x: 6.7, y: 2.74}
   m_SizeDelta: {x: 6.34, y: 6.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1071380983
