@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -622,16 +622,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682145670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -50}
   m_LocalScale: {x: 10, y: 10, z: 0}
   m_Children: []
   m_Father: {fileID: 1056933662}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.55027395, y: 0.061482247}
-  m_AnchorMax: {x: 0.60842466, y: 0.16745184}
-  m_AnchoredPosition: {x: 0.5, y: 0}
-  m_SizeDelta: {x: -45.880005, y: -46.880005}
+  m_AnchorMin: {x: 0.52064323, y: 0.08533335}
+  m_AnchorMax: {x: 0.609, y: 0.25211114}
+  m_AnchoredPosition: {x: 2.5, y: -0.19998169}
+  m_SizeDelta: {x: -75.781, y: -80.569}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2083685023
 GameObject:
@@ -645,7 +645,7 @@ GameObject:
   - component: {fileID: 2083685026}
   - component: {fileID: 2083685025}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -659,16 +659,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083685023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1056933662}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.58000004, y: 0.3755632}
+  m_AnchorMax: {x: 0.8975001, y: 0.5287767}
+  m_AnchoredPosition: {x: -74.5, y: 9.248749}
+  m_SizeDelta: {x: -94.5, y: -26.497498}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2083685025
 MonoBehaviour:
@@ -697,13 +697,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 'Score:'
 --- !u!222 &2083685026
 CanvasRenderer:
   m_ObjectHideFlags: 0
