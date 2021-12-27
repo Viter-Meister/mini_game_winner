@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class MazeSpawner : MonoBehaviour
 {
+    public GameObject Maze;
+    public GameObject Coins;
+
     public GameObject cell;
+    public GameObject Coin;
 
     void Start()
     {
@@ -15,7 +19,10 @@ public class MazeSpawner : MonoBehaviour
         {
             for (int y = 0; y < maze.GetLength(1); y++)
             {
-                Cell c = Instantiate(cell, new Vector2(x, y), Quaternion.identity).GetComponent<Cell>();
+                Cell c = Instantiate(cell, new Vector2(x, y), Quaternion.identity, Maze.transform).GetComponent<Cell>();
+
+                if(x < 19 && y < 19)
+                    Instantiate(Coin, new Vector2(x + 0.5f, y + 0.5f), Quaternion.identity, Coins.transform);
 
                 c.LeftWall.SetActive(maze[x, y].WallLeft);
                 c.BottomWall.SetActive(maze[x, y].WallBottom);

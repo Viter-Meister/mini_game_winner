@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boxe_Blue
   - Block
+  - Coin
   layers:
   - Default
   - TransparentFX

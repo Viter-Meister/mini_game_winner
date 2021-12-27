@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,8 +14,8 @@ public class MazeGeneratorCell
 
 public class MazeGenerator
 {
-    public int Widht = 10;
-    public int Hieght = 10;
+    public int Widht = 20;
+    public int Hieght = 20;
 
     public MazeGeneratorCell[,] GenerateMaze()
     {
@@ -31,6 +30,7 @@ public class MazeGenerator
 
         for (int x = 0; x < maze.GetLength(0); x++)
             maze[x, Hieght - 1].WallLeft = false;
+            
 
         for (int y = 0; y < maze.GetLength(1); y++)
             maze[Widht - 1, y].WallBottom = false;
