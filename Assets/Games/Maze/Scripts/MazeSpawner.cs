@@ -21,7 +21,7 @@ public class MazeSpawner : MonoBehaviour
             {
                 Cell c = Instantiate(cell, new Vector2(x, y), Quaternion.identity, Maze.transform).GetComponent<Cell>();
 
-                if(x < 19 && y < 19)
+                if(x < 14 && y < 14)
                     Instantiate(Coin, new Vector2(x + 0.5f, y + 0.5f), Quaternion.identity, Coins.transform);
 
                 c.LeftWall.SetActive(maze[x, y].WallLeft);
