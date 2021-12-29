@@ -28,12 +28,11 @@ public class MazeTime : MonoBehaviour
         else
         {
             player.SetActive(false);
-            Invoke("LoadMenue", 3);
         }
     }
 
-    void LoadMenue()
+    public void Menu()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenue");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 }

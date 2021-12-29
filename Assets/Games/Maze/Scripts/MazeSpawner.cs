@@ -9,6 +9,10 @@ public class MazeSpawner : MonoBehaviour
 
     public GameObject cell;
     public GameObject Coin;
+    public GameObject BonusChest;
+
+    private int CountCoins = 101;
+    private List<Vector2> TakenPosition = new List<Vector2>();
 
     void Start()
     {
@@ -21,12 +25,43 @@ public class MazeSpawner : MonoBehaviour
             {
                 Cell c = Instantiate(cell, new Vector2(x, y), Quaternion.identity, Maze.transform).GetComponent<Cell>();
 
-                if(x < 14 && y < 14)
-                    Instantiate(Coin, new Vector2(x + 0.5f, y + 0.5f), Quaternion.identity, Coins.transform);
+                //if(x < 14 && y < 14)
+                //    Instantiate(Coin, new Vector2(x + 0.5f, y + 0.5f), Quaternion.identity, Coins.transform);
+
+                SpawnCoins();
 
                 c.LeftWall.SetActive(maze[x, y].WallLeft);
                 c.BottomWall.SetActive(maze[x, y].WallBottom);
             }
+        }
+    }
+
+    void SpawnCoins()
+    {
+        int x = Random.Range(0, 14);
+        int y = Random.Range(0, 14);
+
+        Vector2 vec = new Vector2(x, y);
+
+        while (CountCoins > 0)
+        {
+            if (CountCoins == 1 && !TakenPosition.Contains(vec))
+            {
+                Instantiate(BonusChest, new Vector2(x + 0.5f, y + 0.5f), Quaternion.identity, Coins.transform);
+                TakenPosition.Add(vec);
+                CountCoins -= 1;
+            }
+            else if (!TakenPosition.Contains(vec))
+            {
+                Instantiate(Coin, new Vector2(x + 0.5f, y + 0.5f), Quaternion.identity, Coins.transform);
+                TakenPosition.Add(vec);
+                CountCoins -= 1;
+            }
+
+            x = Random.Range(0, 14);
+            y = Random.Range(0, 14);
+
+            vec = new Vector2(x, y);
         }
     }
 }
