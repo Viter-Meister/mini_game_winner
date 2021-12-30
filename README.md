@@ -29,3 +29,7 @@
 **HJ+KL** - Простая аркада в стиле "волк ловит яйца". Управляя персонажем-котом четырьмя кнопками, нужно собирать определённые предметы, движущиеся по четырём контейнерам. Название — отсылка к [управляющим клавишам](https://en.wikipedia.org/wiki/Arrow_keys#HJKL_keys) в *NIX-системах.
 
 ![Иллюстрация к мини игре HJKL](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/HJKL.png)
+
+**Maze** - мини игра, в которой игроку предстоит двигаться по лабиринту и собирать монетки, увеличивающие счет игрока, также в лабиринте имеется сундук содержащий 50 монеток. 
+
+![Иллюстрация к мини игре Maze](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/Maze.png)
