@@ -14,8 +14,8 @@ public class MazeGeneratorCell
 
 public class MazeGenerator
 {
-    public int Widht = 15;
-    public int Hieght = 15;
+    public int Widht = 20;
+    public int Hieght = 20;
 
     public MazeGeneratorCell[,] GenerateMaze()
     {

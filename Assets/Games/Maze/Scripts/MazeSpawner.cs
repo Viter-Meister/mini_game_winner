@@ -25,9 +25,6 @@ public class MazeSpawner : MonoBehaviour
             {
                 Cell c = Instantiate(cell, new Vector2(x, y), Quaternion.identity, Maze.transform).GetComponent<Cell>();
 
-                //if(x < 14 && y < 14)
-                //    Instantiate(Coin, new Vector2(x + 0.5f, y + 0.5f), Quaternion.identity, Coins.transform);
-
                 SpawnCoins();
 
                 c.LeftWall.SetActive(maze[x, y].WallLeft);
@@ -38,8 +35,8 @@ public class MazeSpawner : MonoBehaviour
 
     void SpawnCoins()
     {
-        int x = Random.Range(0, 14);
-        int y = Random.Range(0, 14);
+        int x = Random.Range(0, 19);
+        int y = Random.Range(0, 19);
 
         Vector2 vec = new Vector2(x, y);
 
@@ -58,8 +55,8 @@ public class MazeSpawner : MonoBehaviour
                 CountCoins -= 1;
             }
 
-            x = Random.Range(0, 14);
-            y = Random.Range(0, 14);
+            x = Random.Range(0, 19);
+            y = Random.Range(0, 19);
 
             vec = new Vector2(x, y);
         }
