@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - Text
   - BonusChest
+  - Trail
   layers:
   - Default
   - TransparentFX

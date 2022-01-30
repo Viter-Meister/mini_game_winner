@@ -4,13 +4,6 @@ public class PlayerMove2 : MonoBehaviour
 {
     public float speed = 0.1f;
 
-    private Rigidbody _rb;
-
-    void Start()
-    {
-        _rb = GetComponent<Rigidbody>();
-    }
-
     void FixedUpdate()
     {
         MovementLogic();
