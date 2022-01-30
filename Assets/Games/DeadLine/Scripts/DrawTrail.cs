@@ -11,6 +11,8 @@ public class DrawTrail : MonoBehaviour
 
     private EdgeCollider2D collider;
 
+    private int TrailLength = 0;
+
     private void Start()
     {
         line = GetComponent<LineRenderer>();
@@ -32,11 +34,25 @@ public class DrawTrail : MonoBehaviour
                 collider.points = pointsList.ToArray();
                 collider.enabled = true;
             }
+
+            TrailLength += 1;
+
+            RemovePointInLine();
         }
     }
 
     private void RemovePointInLine()
     {
-        
+        if (TrailLength == 200)
+        {
+            line.positionCount = 0;
+            pointsList.RemoveAt(0);
+            line.positionCount = pointsList.Count;
+            for (int i = 0; i < pointsList.Count; i++)
+            {
+                line.SetPosition(i, pointsList[i]);
+            }
+            TrailLength -= 1;
+        }
     }
 }
