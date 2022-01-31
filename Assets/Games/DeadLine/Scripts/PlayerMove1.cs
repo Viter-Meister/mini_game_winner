@@ -5,6 +5,10 @@ public class PlayerMove1 : MonoBehaviour
 {
     public float speed = 0.1f;
 
+    public GameObject Trail;
+
+    public bool Death = false;
+
     void FixedUpdate()
     {
         MovementLogic();
@@ -19,5 +23,15 @@ public class PlayerMove1 : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
 
         transform.Translate(movement * speed * Time.fixedDeltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Trail2")
+        {
+            gameObject.SetActive(false);
+            Trail.SetActive(false);
+            Death = true;
+        }
     }
 }

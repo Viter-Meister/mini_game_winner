@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class DrawTrail : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject Player;
+    public GameObject AnotherPlayer;
 
     private LineRenderer line;
     public List<Vector2> pointsList;
 
     private EdgeCollider2D collider;
 
-    private int TrailLength = 0;
+    public int TrailLength = 0;
 
     private void Start()
     {
@@ -23,9 +24,9 @@ public class DrawTrail : MonoBehaviour
 
     private void Update()
     {
-        if (!pointsList.Contains(player.transform.position))
+        if (!pointsList.Contains(Player.transform.position))
         {
-            pointsList.Add(player.transform.position);
+            pointsList.Add(Player.transform.position);
             line.positionCount = pointsList.Count;
             line.SetPosition(pointsList.Count - 1, pointsList[pointsList.Count - 1]);
 
