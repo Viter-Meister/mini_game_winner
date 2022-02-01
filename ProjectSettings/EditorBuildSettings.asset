@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Maze.unity
     guid: 98da4d279e6a7d54b960f0358f7a2a74
+  - enabled: 1
+    path: Assets/Scenes/DeadLine.unity
+    guid: 81c3759a48ba10840a4345458dd23fda
   m_configObjects: {}

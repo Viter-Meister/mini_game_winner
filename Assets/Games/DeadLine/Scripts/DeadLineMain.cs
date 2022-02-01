@@ -12,6 +12,15 @@ public class DeadLineMain : MonoBehaviour
 
     public GameObject TimerForStart;
 
+    private int point1 = 0;
+    private int point2 = 0;
+
+    public GameObject[] ScoreRight = new GameObject[3];
+    public GameObject[] ScoreLeft = new GameObject[3];
+
+    public GameObject RedWin;
+    public GameObject BlueWin;
+
     private Vector2 StartPosition1;
     private Vector2 StartPosition2;
 
@@ -25,6 +34,32 @@ public class DeadLineMain : MonoBehaviour
     {
         if (Player1.GetComponent<PlayerMove1>().Death || Player2.GetComponent<PlayerMove2>().Death)
         {
+            if (Player2.GetComponent<PlayerMove2>().Death && (point1 < 3) && (point2 < 3))
+            {
+                point1 += 1;
+                ScoreRight[point1 - 1].SetActive(true);
+            }
+            if (Player1.GetComponent<PlayerMove1>().Death && (point2 < 3) && (point1 < 3))
+            {
+                point2 += 1;
+                ScoreLeft[point2 - 1].SetActive(true);
+            }
+            if ((point1 == 3) || (point2 == 3))
+            {
+                if (point1 == 3)
+                {
+                    RedWin.SetActive(true);
+                }
+                else
+                {
+                    BlueWin.SetActive(true);
+                }
+
+                Player1.SetActive(false);
+                Player2.SetActive(false);
+
+                gameObject.SetActive(false);
+            }
             Invoke("Restart", 2);
             Player1.GetComponent<PlayerMove1>().Death = false;
             Player2.GetComponent<PlayerMove2>().Death = false;
