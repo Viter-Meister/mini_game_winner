@@ -8,6 +8,10 @@ public class PlayerMove2 : MonoBehaviour
 
     public bool Death = false;
 
+    public AudioSource explosionAudio;
+
+    public GameObject explosionEffect;
+
     void FixedUpdate()
     {
         MovementLogic();
@@ -28,6 +32,8 @@ public class PlayerMove2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Trail1")
         {
+            explosionAudio.Play();
+            Instantiate(explosionEffect, gameObject.transform.position, Quaternion.identity);
             gameObject.SetActive(false);
             Trail.SetActive(false);
             Death = true;

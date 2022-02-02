@@ -13,6 +13,9 @@ public class DrawTrail : MonoBehaviour
     private EdgeCollider2D collider;
 
     public int TrailLength = 0;
+    private int MaxTrailLenght = 150;
+
+    private float IncMaxLenght = 5;
 
     private void Start()
     {
@@ -40,11 +43,21 @@ public class DrawTrail : MonoBehaviour
 
             RemovePointInLine();
         }
+
+        if (IncMaxLenght > 0)
+        {
+            IncMaxLenght -= Time.deltaTime;
+        }
+        else
+        {
+            IncMaxLenght = 5;
+            MaxTrailLenght += 10;
+        }
     }
 
     private void RemovePointInLine()
     {
-        if (TrailLength == 200)
+        if (TrailLength == MaxTrailLenght)
         {
             line.positionCount = 0;
             pointsList.RemoveAt(0);
