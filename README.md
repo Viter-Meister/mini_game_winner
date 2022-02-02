@@ -30,6 +30,10 @@
 
 ![Иллюстрация к мини игре HJKL](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/HJKL.png)
 
-**Maze** - мини игра, в которой игроку предстоит двигаться по лабиринту и собирать монетки, увеличивающие счет игрока, также в лабиринте имеется сундук содержащий 50 монеток. 
+**Maze** - мини игра, в которой игроку предстоит двигаться по лабиринту и собирать монетки, увеличивающие счет игрока, также в лабиринте имеется сундук содержащий 50 монеток.
 
 ![Иллюстрация к мини игре Maze](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/Maze.png)
+
+**Dead Line** - мини игра, в которой игроку нужно прокладывать тропу и заманить своего противника в ловушку. Побеждает тот, кто первым наберет 3 очка. 
+
+![Иллюстрация к мини игре DeadLine](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/DeadLine.png)
