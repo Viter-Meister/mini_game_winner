@@ -62,6 +62,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Pong");
     }
 
+    public void HJKL()
+    {
+        SceneManager.LoadScene("HJKL");
+    }
+
     public void AudioPlay()
     {
         audioSource.Play();

@@ -55,7 +55,12 @@ public class CubeTowerCubeSpawner : MonoBehaviour
     public void End()
     {
         isEnd = true;
-        Invoke("BackToMenu", 2);
+
+        ScoreText.GetComponent<RectTransform>().anchoredPosition = new Vector2(-100, -130);
+        ScoreText.GetComponent<RectTransform>().offsetMin += new Vector2(-120, 296);
+        ScoreText.GetComponent<RectTransform>().offsetMax -= new Vector2(120, -296);
+
+        Invoke("BackToMenu", 3);
     }
 
     private void OnDrawGizmos()
