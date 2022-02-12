@@ -9,19 +9,25 @@ public class BoardMain : MonoBehaviour
     public GameObject player;
     public Transform[] spawns;
     public Color[] colors;
+    public string[] games;
 
+    private BasicValues basicValues;
     private GameObject[] players = new GameObject[4];
+    private float offset = 0.07f;
+    private int end = 30;
 
-    void Start()
+    private void Start()
     {
-        SpawnPlayers(1);
+        basicValues = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
+        SpawnPlayers(basicValues.playersCount);
     }
 
     public void SpawnPlayers(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            players[i] = Instantiate(player, spawns[0].position + new Vector3(0.07f * i, 0), transform.rotation);
+            players[i] = Instantiate(player, spawns[basicValues.playersPosition[i]].position 
+                + new Vector3(offset * i, 0), transform.rotation);
             players[i].GetComponent<SpriteRenderer>().color = colors[i];
         }
     }
@@ -42,30 +48,39 @@ public class BoardMain : MonoBehaviour
             dice.SetActive(true);
     }
 
-    public void FromDice(int side)
+    private void NextPlayer()
     {
-        StartCoroutine(Move(0, side + 1));
+        basicValues.nowPlayer++;
+        if (basicValues.nowPlayer == basicValues.playersCount)
+            basicValues.nowPlayer = 0;
     }
 
-    public void MovePlayer(int player, int length)
+    public void FromDice(int side)
     {
-        BoardPlayer boardPlayer = players[player].GetComponent<BoardPlayer>();
-        boardPlayer.position += length;
-        players[player].transform.position = spawns[boardPlayer.position].position;
+        StartCoroutine(Move(basicValues.nowPlayer, side));
+    }
+
+    public void ChooseTheGame()
+    {
+        int game = basicValues.nextGame[basicValues.nowPlayer];
+        basicValues.nextGame[basicValues.nowPlayer] = -1;
+        if (game != -1)
+            SceneManager.LoadScene(games[game]);
+        else
+            SceneManager.LoadScene(games[Random.Range(0, games.Length)]);
     }
 
     private IEnumerator Move(int player, int length)
     {
-        BoardPlayer boardPlayer = players[player].GetComponent<BoardPlayer>();
-
-        for (int i = boardPlayer.position; i <= boardPlayer.position + length; i++)
+        for (int i = basicValues.playersPosition[player]; i <= basicValues.playersPosition[player] + length; i++)
         {
-            if (i > 30)
+            if (i > end)
                 break;
-            players[player].transform.position = spawns[i].position + new Vector3(0.07f * player, 0);
+            players[player].transform.position = spawns[i].position + new Vector3(offset * player, 0);
             yield return new WaitForSeconds(0.2f);
         }
-        
-        boardPlayer.position = boardPlayer.position + length > 30 ? 30 : boardPlayer.position + length;
+        basicValues.playersPosition[player] += (length > end) ? end : length;
+        yield return new WaitForSeconds(1);
+        ChooseTheGame();
     }
 }

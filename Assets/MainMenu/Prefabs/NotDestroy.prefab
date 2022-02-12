@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7364529041837661621}
   - component: {fileID: 7364529041837661623}
+  - component: {fileID: 663158916527037316}
   - component: {fileID: 6843443042315426778}
   m_Layer: 0
-  m_Name: Music
+  m_Name: NotDestroy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +129,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &663158916527037316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7364529041837661620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f8ca8165020b043a8f8da1fef9b452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGame: 1
+  playersCount: 2
+  playersPosition: 00000000000000000000000000000000
+  nowPlayer: 0
+  nowPlayer2: 0
+  nextGame: 00000000000000000000000000000000
 --- !u!114 &6843443042315426778
 MonoBehaviour:
   m_ObjectHideFlags: 0

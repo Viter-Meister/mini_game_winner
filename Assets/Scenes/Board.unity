@@ -514,6 +514,12 @@ MonoBehaviour:
   - {r: 0.5176471, g: 0.5882353, b: 0.5411765, a: 1}
   - {r: 0.9811321, g: 0.53129226, b: 0.53129226, a: 1}
   - {r: 0, g: 1, b: 1, a: 1}
+  games:
+  - Tetris
+  - ReachTop
+  - CubeTower
+  - Pong
+  - HJKL
 --- !u!1 &461534252
 GameObject:
   m_ObjectHideFlags: 0

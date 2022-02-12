@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
-    public Rigidbody2D rigidbody;
+    public new Rigidbody2D rigidbody;
     public float speed;
     private float dir;
     public Vector2 direction;
@@ -142,6 +142,6 @@ IEnumerator Coroutine()
 
     private void EndGame()
     {
-        SceneManager.LoadScene("MainMenu");
+        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
     }
 }

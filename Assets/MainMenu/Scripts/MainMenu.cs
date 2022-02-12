@@ -12,59 +12,54 @@ public class MainMenu : MonoBehaviour
     public GameObject options;
 
     public GameObject menu;
+    public GameObject miniGames;
     public GameObject panel;
 
     private AudioSource audioSource;
-    static private bool isStart = false;
+    private BasicValues basicValues;
+    static private bool wasStart = false;
 
     private void Start()
     {
         Cursor.visible = true;
 
         GameObject click;
-        if (!isStart)
+        GameObject notDestroy;
+        if (!wasStart)
         {
-            Instantiate(musicPrefab);
+            notDestroy = Instantiate(musicPrefab);
             click = Instantiate(clickPrefab);
             DontDestroyOnLoad(click);
-            isStart = true;
+            wasStart = true;
         }
         else
+        {
+            notDestroy = GameObject.Find("NotDestroy(Clone)");
             click = GameObject.Find("Click(Clone)");
+        }
 
         options.GetComponent<Options>().StartOptions();
+
+        basicValues = notDestroy.GetComponent<BasicValues>();
+        if (basicValues.isGame)
+            menu.SetActive(true);
+        else
+            miniGames.SetActive(true);
+        basicValues.Reload();
 
         audioSource = click.GetComponent<AudioSource>();
     }
 
-    public void Play()
+    public void ChangeCountOfPlayers(int count)
     {
+        basicValues.playersCount = count;
+        basicValues.isGame = true;
         SceneManager.LoadScene("Board");
     }
 
-    public void Tetris()
+    public void PlayMiniGame(string game)
     {
-        SceneManager.LoadScene("Tetris");
-    }
-
-    public void ReachTop()
-    {
-        SceneManager.LoadScene("ReachTop");
-    }
-
-    public void CubeTower()
-    {
-        SceneManager.LoadScene("CubeTower");
-    }
-
-    public void Pong()
-    {
-        SceneManager.LoadScene("Pong");
-    }
-
-    public void HJKL()
-    {
-        SceneManager.LoadScene("HJKL");
+        SceneManager.LoadScene(game);
     }
 
     public void AudioPlay()

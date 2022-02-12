@@ -79,6 +79,6 @@ public class TetrisMain : MonoBehaviour
 
     public void GameIsOver()
     {
-        SceneManager.LoadScene("MainMenu");
+        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
     }
 }

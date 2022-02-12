@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Right : MonoBehaviour
 {
-    public Rigidbody2D rigidbody;
+    public new Rigidbody2D rigidbody;
     public float speed;
     public Vector2 direction;
     // Start is called before the first frame update

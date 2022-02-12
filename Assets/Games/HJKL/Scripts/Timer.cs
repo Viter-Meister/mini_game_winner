@@ -60,7 +60,7 @@ public class Timer : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("MainMenu");
+        yield return new WaitForSeconds(1);
+        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
     }
 }
