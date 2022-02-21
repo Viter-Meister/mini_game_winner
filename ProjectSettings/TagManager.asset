@@ -4,8 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Brick
+  - Boxe_Blue
   - Block
+  - Coin
+  - Text
+  - BonusChest
+  - Trail1
+  - Trail2
   layers:
   - Default
   - TransparentFX
