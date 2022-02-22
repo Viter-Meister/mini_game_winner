@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class BoardMain : MonoBehaviour
@@ -11,6 +12,10 @@ public class BoardMain : MonoBehaviour
     public Color[] colors;
     public string[] games;
 
+    public Image[] PanelPlayers;
+    public GameObject YourMove;
+    public GameObject NextGame;
+
     private BasicValues basicValues;
     private GameObject[] players = new GameObject[4];
     private float offset = 0.07f;
@@ -20,16 +25,24 @@ public class BoardMain : MonoBehaviour
     {
         basicValues = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
         SpawnPlayers(basicValues.playersCount);
+        AfterGame();
     }
 
     public void SpawnPlayers(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            players[i] = Instantiate(player, spawns[basicValues.playersPosition[i]].position 
+            players[i] = Instantiate(player, spawns[basicValues.playersPosition[i]].position
                 + new Vector3(offset * i, 0), transform.rotation);
             players[i].GetComponent<SpriteRenderer>().color = colors[i];
         }
+    }
+
+    public void AfterGame()
+    {
+        NextPlayer();
+        PanelPlayers[0].color = colors[basicValues.nowPlayer];
+        YourMove.SetActive(true);
     }
 
     public void AudioPlay()
@@ -42,16 +55,15 @@ public class BoardMain : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void Update()
+    public void Dice()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            dice.SetActive(true);
+        dice.SetActive(true);
     }
 
     private void NextPlayer()
     {
         basicValues.nowPlayer++;
-        if (basicValues.nowPlayer == basicValues.playersCount)
+        if (basicValues.nowPlayer >= basicValues.playersCount)
             basicValues.nowPlayer = 0;
     }
 
@@ -60,14 +72,14 @@ public class BoardMain : MonoBehaviour
         StartCoroutine(Move(basicValues.nowPlayer, side));
     }
 
-    public void ChooseTheGame()
+    public void LoadGame()
     {
-        int game = basicValues.nextGame[basicValues.nowPlayer];
-        basicValues.nextGame[basicValues.nowPlayer] = -1;
-        if (game != -1)
-            SceneManager.LoadScene(games[game]);
-        else
+        bool game = basicValues.nextGame[basicValues.nowPlayer];
+        basicValues.nextGame[basicValues.nowPlayer] = false;
+        if (!game)
             SceneManager.LoadScene(games[Random.Range(0, games.Length)]);
+        else
+            SceneManager.LoadScene(games[0]);
     }
 
     private IEnumerator Move(int player, int length)
@@ -81,6 +93,7 @@ public class BoardMain : MonoBehaviour
         }
         basicValues.playersPosition[player] += (length > end) ? end : length;
         yield return new WaitForSeconds(1);
-        ChooseTheGame();
+        PanelPlayers[1].color = colors[basicValues.nowPlayer];
+        NextGame.SetActive(true);
     }
 }

@@ -10,7 +10,7 @@ public class DrawTrail : MonoBehaviour
     private LineRenderer line;
     public List<Vector2> pointsList;
 
-    private EdgeCollider2D collider;
+    private new EdgeCollider2D collider;
 
     public int TrailLength = 0;
     private int MaxTrailLenght = 150;

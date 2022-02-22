@@ -9200,7 +9200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main: {fileID: 519420030}
-  time: 90
+  time: 60
 --- !u!102 &1327323008
 TextMesh:
   serializedVersion: 3

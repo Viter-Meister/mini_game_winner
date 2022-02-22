@@ -8,9 +8,8 @@ public class BasicValues : MonoBehaviour
     public bool isGame;
     public int playersCount;
     public int[] playersPosition;
-    public int nowPlayer = 0;
-    public int nowPlayer2 = 0;
-    public int[] nextGame;
+    public int nowPlayer = 3;
+    public bool[] nextGame;
 
     private void Start()
     {
@@ -22,7 +21,7 @@ public class BasicValues : MonoBehaviour
         for (int i = 0; i < playersPosition.Length; i++)
             playersPosition[i] = 0;
         for (int i = 0; i < nextGame.Length; i++)
-            nextGame[i] = -1;
+            nextGame[i] = false;
         nowPlayer = 0;
         isGame = false;
     }
