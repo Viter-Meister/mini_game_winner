@@ -77,7 +77,14 @@ public class BoardMain : MonoBehaviour
         bool game = basicValues.nextGame[basicValues.nowPlayer];
         basicValues.nextGame[basicValues.nowPlayer] = false;
         if (!game)
-            SceneManager.LoadScene(games[Random.Range(0, games.Length)]);
+        {
+            if (basicValues.playersCount == 1)
+                SceneManager.LoadScene(games[Random.Range(0, 4)]);
+            else
+            {
+                SceneManager.LoadScene(games[Random.Range(0, games.Length)]);
+            }
+        }
         else
             SceneManager.LoadScene(games[0]);
     }

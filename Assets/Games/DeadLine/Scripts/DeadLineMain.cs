@@ -58,7 +58,7 @@ public class DeadLineMain : MonoBehaviour
                 Player1.SetActive(false);
                 Player2.SetActive(false);
 
-                gameObject.SetActive(false);
+                Invoke("GameIsOver", 1);
             }
             Invoke("Restart", 2);
             Player1.GetComponent<PlayerMove>().Death = false;
@@ -83,6 +83,11 @@ public class DeadLineMain : MonoBehaviour
 
         Player1.transform.position = StartPosition1;
         Player2.transform.position = StartPosition2;
+    }
+
+    public void GameIsOver()
+    {
+        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
     }
 
     private void ClearTrail()

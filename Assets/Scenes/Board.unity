@@ -516,10 +516,12 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 1, a: 1}
   games:
   - Tetris
-  - ReachTop
   - CubeTower
-  - Pong
   - HJKL
+  - Maze
+  - ReachTop
+  - Pong
+  - DeadLine
   PanelPlayers:
   - {fileID: 1614975736}
   - {fileID: 986792516}
