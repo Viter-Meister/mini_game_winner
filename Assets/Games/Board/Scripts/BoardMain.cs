@@ -12,9 +12,12 @@ public class BoardMain : MonoBehaviour
     public Color[] colors;
     public string[] games;
 
+    public GameObject PlayerToggle;
     public Image[] PanelPlayers;
     public GameObject YourMove;
-    public GameObject NextGame;
+    public GameObject NextGameOnePlayer;
+    public GameObject NextGameTwoPlayers;
+    public GameObject NextGameManyPlayers;
 
     private BasicValues basicValues;
     private GameObject[] players = new GameObject[4];
@@ -41,8 +44,7 @@ public class BoardMain : MonoBehaviour
     public void AfterGame()
     {
         NextPlayer();
-        PanelPlayers[0].color = colors[basicValues.nowPlayer];
-        YourMove.SetActive(true);
+        Panel(YourMove, 0);
     }
 
     public void AudioPlay()
@@ -72,21 +74,33 @@ public class BoardMain : MonoBehaviour
         StartCoroutine(Move(basicValues.nowPlayer, side));
     }
 
-    public void LoadGame()
+    public void LoadGame(bool isOnePlayerGame)
     {
-        bool game = basicValues.nextGame[basicValues.nowPlayer];
-        basicValues.nextGame[basicValues.nowPlayer] = false;
-        if (!game)
-        {
-            if (basicValues.playersCount == 1)
-                SceneManager.LoadScene(games[Random.Range(0, 4)]);
-            else
-            {
-                SceneManager.LoadScene(games[Random.Range(0, games.Length)]);
-            }
-        }
+        //bool game = basicValues.nextGame[basicValues.nowPlayer];
+        //basicValues.nextGame[basicValues.nowPlayer] = false;
+        if (isOnePlayerGame)
+            SceneManager.LoadScene(games[Random.Range(0, 4)]);
         else
-            SceneManager.LoadScene(games[0]);
+            SceneManager.LoadScene(games[Random.Range(4, games.Length)]);
+    }
+
+    private void Panel(GameObject NextGame, int nowPlayerColor)
+    {
+        PanelPlayers[nowPlayerColor].color = colors[basicValues.nowPlayer];
+        if (nowPlayerColor == 2)
+            PanelPlayers[4].color = colors[basicValues.nowPlayer == 0 ? 1 : 0];
+        if (nowPlayerColor == 3)
+        {
+            PlayerToggle.SetActive(basicValues.playersCount == 4);
+            int j = 0;
+            for (int i = 0; i < 4; i++)
+                if (i != basicValues.nowPlayer)
+                {
+                    PanelPlayers[5 + j].color = colors[i];
+                    j++;
+                }
+        }
+        NextGame.SetActive(true);
     }
 
     private IEnumerator Move(int player, int length)
@@ -100,7 +114,17 @@ public class BoardMain : MonoBehaviour
         }
         basicValues.playersPosition[player] += (length > end) ? end : length;
         yield return new WaitForSeconds(1);
-        PanelPlayers[1].color = colors[basicValues.nowPlayer];
-        NextGame.SetActive(true);
+        
+        int whatGame = Random.Range(0, 2);
+        if (basicValues.playersCount == 1 || whatGame == 0)
+            Panel(NextGameOnePlayer, 1);
+        else
+        {
+            if (basicValues.playersCount == 2)
+                Panel(NextGameTwoPlayers, 2);
+            else
+                Panel(NextGameManyPlayers, 3);
+        }
+            
     }
 }
