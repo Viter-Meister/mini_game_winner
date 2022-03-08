@@ -7,7 +7,8 @@ public class PlayerMove : MonoBehaviour
     public string Tag;
 
     public float speed = 0.1f;
-    public GameObject Trail;
+    public GameObject SelfTrail;
+    public GameObject OtherTrail;
     public bool Death = false;
     public AudioSource explosionAudio;
     public GameObject explosionEffect;
@@ -31,7 +32,8 @@ public class PlayerMove : MonoBehaviour
             explosionAudio.Play();
             Instantiate(explosionEffect, gameObject.transform.position, Quaternion.identity);
             gameObject.SetActive(false);
-            Trail.SetActive(false);
+            SelfTrail.SetActive(false);
+            OtherTrail.SetActive(false);
             Death = true;
         }
     }

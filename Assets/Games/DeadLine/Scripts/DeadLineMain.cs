@@ -32,6 +32,22 @@ public class DeadLineMain : MonoBehaviour
 
     void Update()
     {
+        if ((point1 == 3) || (point2 == 3))
+        {
+            if (point1 == 3)
+            {
+                RedWin.SetActive(true);
+            }
+            else
+            {
+                BlueWin.SetActive(true);
+            }
+
+            Player1.SetActive(false);
+            Player2.SetActive(false);
+
+            gameObject.SetActive(false);
+        }
         if (Player1.GetComponent<PlayerMove>().Death || Player2.GetComponent<PlayerMove>().Death)
         {
             if (Player2.GetComponent<PlayerMove>().Death && (point1 < 3) && (point2 < 3))
@@ -58,9 +74,9 @@ public class DeadLineMain : MonoBehaviour
                 Player1.SetActive(false);
                 Player2.SetActive(false);
 
-                Invoke("GameIsOver", 1);
+                Invoke("GameIsOver", 3);
             }
-            Invoke("Restart", 2);
+            Invoke("Restart", 3);
             Player1.GetComponent<PlayerMove>().Death = false;
             Player2.GetComponent<PlayerMove>().Death = false;
         }
@@ -92,13 +108,16 @@ public class DeadLineMain : MonoBehaviour
 
     private void ClearTrail()
     {
-        Trail1.GetComponent<LineRenderer>().positionCount = 0;
         Trail1.GetComponent<DrawTrail>().pointsList.Clear();
 
-        Trail2.GetComponent<LineRenderer>().positionCount = 0;
-        Trail2.GetComponent<DrawTrail>().pointsList.Clear();
+        foreach (Transform child in Trail1.transform) 
+            Destroy(child.gameObject);
 
-        Trail1.GetComponent<DrawTrail>().TrailLength = 0;
-        Trail2.GetComponent<DrawTrail>().TrailLength = 0;
+        Trail2.GetComponent<DrawTrail>().pointsList.Clear();
+        foreach (Transform child in Trail2.transform)
+            Destroy(child.gameObject);
+
+        Trail1.GetComponent<DrawTrail>().CountToGap = 0;
+        Trail2.GetComponent<DrawTrail>().CountToGap = 0;
     }
 }

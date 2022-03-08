@@ -10,7 +10,6 @@ TagManager:
   - Text
   - BonusChest
   - Trail1
-  - Trail2
   layers:
   - Default
   - TransparentFX
