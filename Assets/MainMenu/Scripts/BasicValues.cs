@@ -9,9 +9,11 @@ public class BasicValues : MonoBehaviour
     public bool isGame;
     public int playersCount;
     public int[] playersPosition;
-    public int nowPlayer = 3;
+    public int nowPlayer;
     public bool[] nextGame;
+    public int nowBonus;
     private AudioSource audioSource;
+    
 
     private void Start()
     {
@@ -26,7 +28,8 @@ public class BasicValues : MonoBehaviour
             playersPosition[i] = 0;
         for (int i = 0; i < nextGame.Length; i++)
             nextGame[i] = false;
-        nowPlayer = 0;
+        nowPlayer = 3;
+        nowBonus = -1;
         isGame = false;
     }
 

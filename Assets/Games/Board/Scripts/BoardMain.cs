@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class BoardMain : MonoBehaviour
 {
     public GameObject dice;
+    public Sprite[] bonuses;
     public GameObject player;
     public Transform[] spawns;
     public Color[] colors;
@@ -15,6 +16,7 @@ public class BoardMain : MonoBehaviour
     public GameObject PlayerToggle;
     public Image[] PanelPlayers;
     public GameObject YourMove;
+    public GameObject Bonus;
     public GameObject NextGameOnePlayer;
     public GameObject NextGameTwoPlayers;
     public GameObject NextGameManyPlayers;
@@ -28,6 +30,18 @@ public class BoardMain : MonoBehaviour
     {
         basicValues = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
         SpawnPlayers(basicValues.playersCount);
+        if (basicValues.nowBonus == -1)
+            AfterGame();
+        else
+        {
+            Panel(Bonus, 8);
+            PanelPlayers[9].sprite = bonuses[basicValues.nowBonus];
+        }
+    }
+
+    public void FromBonus()
+    {
+        basicValues.nowBonus = -1;
         AfterGame();
     }
 
@@ -125,6 +139,5 @@ public class BoardMain : MonoBehaviour
             else
                 Panel(NextGameManyPlayers, 3);
         }
-            
     }
 }
