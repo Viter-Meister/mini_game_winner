@@ -27,15 +27,15 @@ public class MainMenu : MonoBehaviour
         GameObject notDestroy;
         if (!wasStart)
         {
-            notDestroy = Instantiate(musicPrefab);
             click = Instantiate(clickPrefab);
             DontDestroyOnLoad(click);
+            notDestroy = Instantiate(musicPrefab);
             wasStart = true;
         }
         else
         {
-            notDestroy = GameObject.Find("NotDestroy(Clone)");
             click = GameObject.Find("Click(Clone)");
+            notDestroy = GameObject.Find("NotDestroy(Clone)");
         }
 
         options.GetComponent<Options>().StartOptions();
