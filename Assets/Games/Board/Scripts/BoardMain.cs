@@ -17,6 +17,7 @@ public class BoardMain : MonoBehaviour
     public Image[] PanelPlayers;
     public GameObject YourMove;
     public GameObject Bonus;
+    public GameObject End;
     public GameObject NextGameOnePlayer;
     public GameObject NextGameTwoPlayers;
     public GameObject NextGameManyPlayers;
@@ -41,10 +42,17 @@ public class BoardMain : MonoBehaviour
 
     public void FromBonus()
     {
+        if (basicValues.nowBonus < 9)
+            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowBonus - 3, true));
+
+    }
+
+    private void ResetBonusAndNextPlayer()
+    {
         basicValues.nowBonus = -1;
         AfterGame();
     }
-
+    
     public void SpawnPlayers(int count)
     {
         for (int i = 0; i < count; i++)
@@ -85,7 +93,7 @@ public class BoardMain : MonoBehaviour
 
     public void FromDice(int side)
     {
-        StartCoroutine(Move(basicValues.nowPlayer, side));
+        StartCoroutine(Move(basicValues.nowPlayer, side, false));
     }
 
     public void LoadGame(bool isOnePlayerGame)
@@ -117,7 +125,7 @@ public class BoardMain : MonoBehaviour
         NextGame.SetActive(true);
     }
 
-    private IEnumerator Move(int player, int length)
+    private IEnumerator Move(int player, int length, bool isBonus)
     {
         for (int i = basicValues.playersPosition[player]; i <= basicValues.playersPosition[player] + length; i++)
         {
@@ -126,18 +134,29 @@ public class BoardMain : MonoBehaviour
             players[player].transform.position = spawns[i].position + new Vector3(offset * player, 0);
             yield return new WaitForSeconds(0.2f);
         }
-        basicValues.playersPosition[player] += (length > end) ? end : length;
-        yield return new WaitForSeconds(1);
+        basicValues.playersPosition[player] += length;
         
-        int whatGame = Random.Range(0, 2);
-        if (basicValues.playersCount == 1 || whatGame == 0)
-            Panel(NextGameOnePlayer, 1);
+        yield return new WaitForSeconds(1);
+
+        if (basicValues.playersPosition[player] >= end)
+            Panel(End, 10);
         else
         {
-            if (basicValues.playersCount == 2)
-                Panel(NextGameTwoPlayers, 2);
+            if (isBonus)
+                ResetBonusAndNextPlayer();
             else
-                Panel(NextGameManyPlayers, 3);
+            {
+                int whatGame = Random.Range(0, 2);
+                if (basicValues.playersCount == 1 || whatGame == 0)
+                    Panel(NextGameOnePlayer, 1);
+                else
+                {
+                    if (basicValues.playersCount == 2)
+                        Panel(NextGameTwoPlayers, 2);
+                    else
+                        Panel(NextGameManyPlayers, 3);
+                }
+            }
         }
     }
 }

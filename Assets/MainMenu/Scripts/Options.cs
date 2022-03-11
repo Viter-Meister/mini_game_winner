@@ -61,7 +61,8 @@ public class Options : MonoBehaviour
             value = PlayerPrefs.GetInt("quality");
             QualitySettings.SetQualityLevel(2 - value);
 
-            value = PlayerPrefs.HasKey("resolution") ?
+            value = PlayerPrefs.HasKey("resolution") 
+                && PlayerPrefs.GetInt("resolution") < screenResolution.Length ?
                 PlayerPrefs.GetInt("resolution") : screenResolution.Length - 1;
             Screen.SetResolution(screenResolution[value].width,
                 screenResolution[value].height, Screen.fullScreen);
