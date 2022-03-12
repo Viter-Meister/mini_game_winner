@@ -12,8 +12,8 @@ public class BasicValues : MonoBehaviour
     public int nowPlayer;
     public bool[] nextGame;
     public int nowBonus;
+    public int nowLength;
     private AudioSource audioSource;
-    
 
     private void Start()
     {

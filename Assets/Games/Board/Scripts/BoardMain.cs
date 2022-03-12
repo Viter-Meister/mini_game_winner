@@ -42,9 +42,15 @@ public class BoardMain : MonoBehaviour
 
     public void FromBonus()
     {
-        if (basicValues.nowBonus < 9)
+        if (basicValues.nowBonus < 2)
+            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowLength * (basicValues.nowBonus + 2), true));
+        else if (basicValues.nowBonus < 9)
             StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowBonus - 3, true));
-
+        else
+        {
+            NextPlayer();
+            AfterGame();
+        }
     }
 
     private void ResetBonusAndNextPlayer()
@@ -127,6 +133,7 @@ public class BoardMain : MonoBehaviour
 
     private IEnumerator Move(int player, int length, bool isBonus)
     {
+        basicValues.nowLength = length;
         for (int i = basicValues.playersPosition[player]; i <= basicValues.playersPosition[player] + length; i++)
         {
             if (i > end)
