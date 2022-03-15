@@ -7,21 +7,15 @@ public class DrawTrail : MonoBehaviour
     public GameObject Player;
     public GameObject AnotherPlayer;
 
-    private LineRenderer line;
+    public GameObject PartOfTrail;
+
     public List<Vector2> pointsList;
 
-    private EdgeCollider2D collider;
 
-    public int TrailLength = 0;
-    private int MaxTrailLenght = 150;
-
-    private float IncMaxLenght = 5;
+    public float CountToGap = 0;
 
     private void Start()
     {
-        line = GetComponent<LineRenderer>();
-        collider = gameObject.GetComponent<EdgeCollider2D>();
-
         pointsList = new List<Vector2>();
     }
 
@@ -30,43 +24,13 @@ public class DrawTrail : MonoBehaviour
         if (!pointsList.Contains(Player.transform.position))
         {
             pointsList.Add(Player.transform.position);
-            line.positionCount = pointsList.Count;
-            line.SetPosition(pointsList.Count - 1, pointsList[pointsList.Count - 1]);
-
-            if (pointsList.Count > 1)
-            {
-                collider.points = pointsList.ToArray();
-                collider.enabled = true;
-            }
-
-            TrailLength += 1;
-
-            RemovePointInLine();
+            CountToGap += 1;
         }
 
-        if (IncMaxLenght > 0)
+        if (CountToGap % 50 == 0)
         {
-            IncMaxLenght -= Time.deltaTime;
-        }
-        else
-        {
-            IncMaxLenght = 5;
-            MaxTrailLenght += 10;
-        }
-    }
-
-    private void RemovePointInLine()
-    {
-        if (TrailLength == MaxTrailLenght)
-        {
-            line.positionCount = 0;
-            pointsList.RemoveAt(0);
-            line.positionCount = pointsList.Count;
-            for (int i = 0; i < pointsList.Count; i++)
-            {
-                line.SetPosition(i, pointsList[i]);
-            }
-            TrailLength -= 1;
+            GameObject child = Instantiate(PartOfTrail);
+            child.transform.SetParent(this.transform);
         }
     }
 }

@@ -71,7 +71,6 @@ public class CubeTowerCubeSpawner : MonoBehaviour
 
     private void BackToMenu()
     {
-        //Debug.Log("Go to menu");
-        SceneManager.LoadScene("MainMenu");
+        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
     }
 }

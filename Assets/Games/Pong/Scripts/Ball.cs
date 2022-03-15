@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
-    public Rigidbody2D rigidbody;
+    public new Rigidbody2D rigidbody;
     public float speed;
+    public float changeSpeed = 0.01f;
     private float dir;
     public Vector2 direction;
     public GameObject n_1;
@@ -90,6 +91,8 @@ IEnumerator Coroutine()
     {
         rigidbody.velocity = direction.normalized * speed;
 
+        speed += Time.deltaTime * changeSpeed;
+
         if ((transform.position.x > 11) && (Left_Count == 0))
         {
             Left_Count = 1;
@@ -142,6 +145,6 @@ IEnumerator Coroutine()
 
     private void EndGame()
     {
-        SceneManager.LoadScene("MainMenu");
+        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
     }
 }

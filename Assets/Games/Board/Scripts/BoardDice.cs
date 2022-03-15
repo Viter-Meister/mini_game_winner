@@ -25,8 +25,7 @@ public class BoardDice : MonoBehaviour
         yield return new WaitForSeconds(1);
         for (int i = 0; i < sides.Length; i++)
             if (Vector3.Distance(sides[i].position, UpSide.position) < 0.2f)
-                main.FromDice(i);
-            
+                main.FromDice(i + 1);
         gameObject.SetActive(false);
     }
 }

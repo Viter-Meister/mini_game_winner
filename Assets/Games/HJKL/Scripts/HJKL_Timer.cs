@@ -66,6 +66,6 @@ public class HJKL_Timer : MonoBehaviour
 
     void LoadMenue()
     {
-        SceneManager.LoadScene("MainMenu");
+        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
     }
 }

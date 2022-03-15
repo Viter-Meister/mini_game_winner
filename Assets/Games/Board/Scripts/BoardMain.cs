@@ -1,29 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class BoardMain : MonoBehaviour
 {
     public GameObject dice;
+    public Sprite[] bonuses;
     public GameObject player;
     public Transform[] spawns;
     public Color[] colors;
+    public string[] games;
 
+    public GameObject PlayerToggle;
+    public Image[] PanelPlayers;
+    public GameObject YourMove;
+    public GameObject Bonus;
+    public GameObject End;
+    public GameObject NextGameOnePlayer;
+    public GameObject NextGameTwoPlayers;
+    public GameObject NextGameManyPlayers;
+
+    private BasicValues basicValues;
     private GameObject[] players = new GameObject[4];
+    private float offset = 0.07f;
+    private int end = 30;
 
-    void Start()
+    private void Start()
     {
-        SpawnPlayers(1);
+        basicValues = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
+        SpawnPlayers(basicValues.playersCount);
+        if (basicValues.nowBonus == -1)
+            AfterGame();
+        else
+        {
+            Panel(Bonus, 8);
+            PanelPlayers[9].sprite = bonuses[basicValues.nowBonus];
+        }
     }
 
+    public void FromBonus()
+    {
+        if (basicValues.nowBonus < 2)
+            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowLength * (basicValues.nowBonus + 2), true));
+        else if (basicValues.nowBonus < 9)
+            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowBonus - 3, true));
+        else
+        {
+            NextPlayer();
+            AfterGame();
+        }
+    }
+
+    private void ResetBonusAndNextPlayer()
+    {
+        basicValues.nowBonus = -1;
+        AfterGame();
+    }
+    
     public void SpawnPlayers(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            players[i] = Instantiate(player, spawns[0].position + new Vector3(0.07f * i, 0), transform.rotation);
+            players[i] = Instantiate(player, spawns[basicValues.playersPosition[i]].position
+                + new Vector3(offset * i, 0), transform.rotation);
             players[i].GetComponent<SpriteRenderer>().color = colors[i];
         }
+    }
+
+    public void AfterGame()
+    {
+        NextPlayer();
+        Panel(YourMove, 0);
     }
 
     public void AudioPlay()
@@ -36,36 +85,85 @@ public class BoardMain : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void Update()
+    public void Dice()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            dice.SetActive(true);
+        dice.SetActive(true);
+    }
+
+    private void NextPlayer()
+    {
+        basicValues.nowPlayer++;
+        if (basicValues.nowPlayer >= basicValues.playersCount)
+            basicValues.nowPlayer = 0;
     }
 
     public void FromDice(int side)
     {
-        StartCoroutine(Move(0, side + 1));
+        StartCoroutine(Move(basicValues.nowPlayer, side, false));
     }
 
-    public void MovePlayer(int player, int length)
+    public void LoadGame(bool isOnePlayerGame)
     {
-        BoardPlayer boardPlayer = players[player].GetComponent<BoardPlayer>();
-        boardPlayer.position += length;
-        players[player].transform.position = spawns[boardPlayer.position].position;
+        //bool game = basicValues.nextGame[basicValues.nowPlayer];
+        //basicValues.nextGame[basicValues.nowPlayer] = false;
+        if (isOnePlayerGame)
+            SceneManager.LoadScene(games[Random.Range(0, 4)]);
+        else
+            SceneManager.LoadScene(games[Random.Range(4, games.Length)]);
     }
 
-    private IEnumerator Move(int player, int length)
+    private void Panel(GameObject NextGame, int nowPlayerColor)
     {
-        BoardPlayer boardPlayer = players[player].GetComponent<BoardPlayer>();
-
-        for (int i = boardPlayer.position; i <= boardPlayer.position + length; i++)
+        PanelPlayers[nowPlayerColor].color = colors[basicValues.nowPlayer];
+        if (nowPlayerColor == 2)
+            PanelPlayers[4].color = colors[basicValues.nowPlayer == 0 ? 1 : 0];
+        if (nowPlayerColor == 3)
         {
-            if (i > 30)
+            PlayerToggle.SetActive(basicValues.playersCount == 4);
+            int j = 0;
+            for (int i = 0; i < 4; i++)
+                if (i != basicValues.nowPlayer)
+                {
+                    PanelPlayers[5 + j].color = colors[i];
+                    j++;
+                }
+        }
+        NextGame.SetActive(true);
+    }
+
+    private IEnumerator Move(int player, int length, bool isBonus)
+    {
+        basicValues.nowLength = length;
+        for (int i = basicValues.playersPosition[player]; i <= basicValues.playersPosition[player] + length; i++)
+        {
+            if (i > end)
                 break;
-            players[player].transform.position = spawns[i].position + new Vector3(0.07f * player, 0);
+            players[player].transform.position = spawns[i].position + new Vector3(offset * player, 0);
             yield return new WaitForSeconds(0.2f);
         }
+        basicValues.playersPosition[player] += length;
         
-        boardPlayer.position = boardPlayer.position + length > 30 ? 30 : boardPlayer.position + length;
+        yield return new WaitForSeconds(1);
+
+        if (basicValues.playersPosition[player] >= end)
+            Panel(End, 10);
+        else
+        {
+            if (isBonus)
+                ResetBonusAndNextPlayer();
+            else
+            {
+                int whatGame = Random.Range(0, 2);
+                if (basicValues.playersCount == 1 || whatGame == 0)
+                    Panel(NextGameOnePlayer, 1);
+                else
+                {
+                    if (basicValues.playersCount == 2)
+                        Panel(NextGameTwoPlayers, 2);
+                    else
+                        Panel(NextGameManyPlayers, 3);
+                }
+            }
+        }
     }
 }

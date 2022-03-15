@@ -26,13 +26,11 @@ public class MazeTime : MonoBehaviour
             Time.text = Mathf.Round(time).ToString();
         }
         else
-        {
-            player.SetActive(false);
-        }
+            Invoke("GameIsOver", 1);
     }
 
-    public void Menu()
+    public void GameIsOver()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
     }
 }

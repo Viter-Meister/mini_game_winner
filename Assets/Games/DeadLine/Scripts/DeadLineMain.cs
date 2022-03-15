@@ -32,14 +32,30 @@ public class DeadLineMain : MonoBehaviour
 
     void Update()
     {
-        if (Player1.GetComponent<PlayerMove1>().Death || Player2.GetComponent<PlayerMove2>().Death)
+        if ((point1 == 3) || (point2 == 3))
         {
-            if (Player2.GetComponent<PlayerMove2>().Death && (point1 < 3) && (point2 < 3))
+            if (point1 == 3)
+            {
+                RedWin.SetActive(true);
+            }
+            else
+            {
+                BlueWin.SetActive(true);
+            }
+
+            Player1.SetActive(false);
+            Player2.SetActive(false);
+
+            gameObject.SetActive(false);
+        }
+        if (Player1.GetComponent<PlayerMove>().Death || Player2.GetComponent<PlayerMove>().Death)
+        {
+            if (Player2.GetComponent<PlayerMove>().Death && (point1 < 3) && (point2 < 3))
             {
                 point1 += 1;
                 ScoreRight[point1 - 1].SetActive(true);
             }
-            if (Player1.GetComponent<PlayerMove1>().Death && (point2 < 3) && (point1 < 3))
+            if (Player1.GetComponent<PlayerMove>().Death && (point2 < 3) && (point1 < 3))
             {
                 point2 += 1;
                 ScoreLeft[point2 - 1].SetActive(true);
@@ -58,13 +74,13 @@ public class DeadLineMain : MonoBehaviour
                 Player1.SetActive(false);
                 Player2.SetActive(false);
 
-                gameObject.SetActive(false);
+                Invoke("GameIsOver", 3);
             }
-            Invoke("Restart", 2);
-            Player1.GetComponent<PlayerMove1>().Death = false;
-            Player2.GetComponent<PlayerMove2>().Death = false;
+            Invoke("Restart", 3);
+            Player1.GetComponent<PlayerMove>().Death = false;
+            Player2.GetComponent<PlayerMove>().Death = false;
         }
-        else if (!TimerForStart.active && !Player1.active && !Player2.active)
+        else if (!TimerForStart.activeSelf && !Player1.activeSelf && !Player2.activeSelf)
         {
             Player1.SetActive(true);
             Player2.SetActive(true);
@@ -85,15 +101,23 @@ public class DeadLineMain : MonoBehaviour
         Player2.transform.position = StartPosition2;
     }
 
+    public void GameIsOver()
+    {
+        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
+    }
+
     private void ClearTrail()
     {
-        Trail1.GetComponent<LineRenderer>().positionCount = 0;
         Trail1.GetComponent<DrawTrail>().pointsList.Clear();
 
-        Trail2.GetComponent<LineRenderer>().positionCount = 0;
-        Trail2.GetComponent<DrawTrail>().pointsList.Clear();
+        foreach (Transform child in Trail1.transform) 
+            Destroy(child.gameObject);
 
-        Trail1.GetComponent<DrawTrail>().TrailLength = 0;
-        Trail2.GetComponent<DrawTrail>().TrailLength = 0;
+        Trail2.GetComponent<DrawTrail>().pointsList.Clear();
+        foreach (Transform child in Trail2.transform)
+            Destroy(child.gameObject);
+
+        Trail1.GetComponent<DrawTrail>().CountToGap = 0;
+        Trail2.GetComponent<DrawTrail>().CountToGap = 0;
     }
 }

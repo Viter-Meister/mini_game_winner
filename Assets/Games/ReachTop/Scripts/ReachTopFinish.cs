@@ -34,6 +34,6 @@ public class ReachTopFinish : MonoBehaviour
 
     void GoToMenue()
     {
-        SceneManager.LoadScene("MainMenu");
+        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
     }
 }
