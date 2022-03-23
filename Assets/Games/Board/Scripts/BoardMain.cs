@@ -17,6 +17,9 @@ public class BoardMain : MonoBehaviour
     public Image[] PanelPlayers;
     public GameObject YourMove;
     public GameObject Bonus;
+    public GameObject Gift;
+    public GameObject GiftLuck;
+    public GameObject GiftNotLuck;
     public GameObject End;
     public GameObject NextGameOnePlayer;
     public GameObject NextGameTwoPlayers;
@@ -40,10 +43,31 @@ public class BoardMain : MonoBehaviour
         }
     }
 
+    public void FromGift(bool isYes)
+    {
+        if (!isYes)
+            ResetBonusAndNextPlayer();
+        else
+        {
+            int r = Random.Range(0, 2);
+            Panel(r == 0 ? GiftLuck : GiftNotLuck, r == 0 ? 12 : 13);
+        }
+    }
+
+    public void FromGiftYes(bool isLuck)
+    {
+        if (isLuck)
+            StartCoroutine(Move(basicValues.nowPlayer, end, true));
+        else
+            StartCoroutine(Move(basicValues.nowPlayer, -end, true));
+    }
+
     public void FromBonus()
     {
         if (basicValues.nowBonus < 2)
             StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowLength * (basicValues.nowBonus + 2), true));
+        else if (basicValues.nowBonus < 3)
+            Panel(Gift, 11);
         else if (basicValues.nowBonus < 9)
             StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowBonus - 3, true));
         else
@@ -133,15 +157,17 @@ public class BoardMain : MonoBehaviour
 
     private IEnumerator Move(int player, int length, bool isBonus)
     {
+        yield return new WaitForSeconds(0.5f);
         basicValues.nowLength = length;
-        for (int i = basicValues.playersPosition[player]; i <= basicValues.playersPosition[player] + length; i++)
+        for (int i = 0; i < Mathf.Abs(length); i++)
         {
-            if (i > end)
+            basicValues.playersPosition[player] += (int)Mathf.Sign(length);
+            players[player].transform.position = spawns[basicValues.playersPosition[player]].position
+                + new Vector3(offset * player, 0);
+            if (basicValues.playersPosition[player] == 0 || basicValues.playersPosition[player] == end)
                 break;
-            players[player].transform.position = spawns[i].position + new Vector3(offset * player, 0);
             yield return new WaitForSeconds(0.2f);
         }
-        basicValues.playersPosition[player] += length;
         
         yield return new WaitForSeconds(1);
 
