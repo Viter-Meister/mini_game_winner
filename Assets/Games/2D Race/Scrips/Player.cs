@@ -13,4 +13,10 @@ public class Player : MonoBehaviour
         Vector3 dir = new Vector3(move, 0, 0);
         transform.Translate(dir.normalized * Time.deltaTime * speed);
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Car"))
+            Destroy(gameObject);
+    }
 }
