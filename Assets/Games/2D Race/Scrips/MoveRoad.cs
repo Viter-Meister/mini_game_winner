@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class MoveRoad : MonoBehaviour
 {
-    public float speed = 1.5f;
+    public float speed = 3f;
     public GameObject road;
 
     void Update()

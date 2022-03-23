@@ -10,6 +10,8 @@ TagManager:
   - Text
   - BonusChest
   - Trail1
+  - Wall
+  - Car
   layers:
   - Default
   - TransparentFX
