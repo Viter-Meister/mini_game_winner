@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class MoveRoad : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float speed = 1.5f;
+    public GameObject road;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
+
+        if (transform.position.y < -9f)
+        {
+            Instantiate(road, new Vector3(0, 13.85f, 0), Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }
