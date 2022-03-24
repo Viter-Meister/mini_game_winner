@@ -20,6 +20,8 @@ public class BoardMain : MonoBehaviour
     public GameObject Gift;
     public GameObject GiftLuck;
     public GameObject GiftNotLuck;
+    public GameObject ChoiceGameOnePlayer;
+    public GameObject ChoiceGameTwoPlayers;
     public GameObject End;
     public GameObject NextGameOnePlayer;
     public GameObject NextGameTwoPlayers;
@@ -66,8 +68,13 @@ public class BoardMain : MonoBehaviour
     {
         if (basicValues.nowBonus < 2)
             StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowLength * (basicValues.nowBonus + 2), true));
-        else if (basicValues.nowBonus < 3)
+        else if (basicValues.nowBonus == 2)
             Panel(Gift, 11);
+        else if (basicValues.nowBonus == 3)
+        {
+            basicValues.nextGame[basicValues.nowPlayer] = true;
+            ResetBonusAndNextPlayer();
+        }
         else if (basicValues.nowBonus < 9)
             StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowBonus - 3, true));
         else
@@ -104,9 +111,9 @@ public class BoardMain : MonoBehaviour
         GameObject.Find("Click(Clone)").GetComponent<AudioSource>().Play();
     }
 
-    public void Menu()
+    public void ChangeScene(string scene)
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(scene);
     }
 
     public void Dice()
@@ -179,15 +186,26 @@ public class BoardMain : MonoBehaviour
                 ResetBonusAndNextPlayer();
             else
             {
-                int whatGame = Random.Range(0, 2);
-                if (basicValues.playersCount == 1 || whatGame == 0)
-                    Panel(NextGameOnePlayer, 1);
+                if (basicValues.nextGame[player])
+                {
+                    basicValues.nextGame[player] = false;
+                    if (basicValues.playersCount == 1)
+                        Panel(ChoiceGameOnePlayer, 14);
+                    else
+                        Panel(ChoiceGameTwoPlayers, 15);
+                }
                 else
                 {
-                    if (basicValues.playersCount == 2)
-                        Panel(NextGameTwoPlayers, 2);
+                    int whatGame = Random.Range(0, 2);
+                    if (basicValues.playersCount == 1 || whatGame == 0)
+                        Panel(NextGameOnePlayer, 1);
                     else
-                        Panel(NextGameManyPlayers, 3);
+                    {
+                        if (basicValues.playersCount == 2)
+                            Panel(NextGameTwoPlayers, 2);
+                        else
+                            Panel(NextGameManyPlayers, 3);
+                    }
                 }
             }
         }
