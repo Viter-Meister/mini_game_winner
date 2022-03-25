@@ -66,17 +66,27 @@ public class BoardMain : MonoBehaviour
 
     public void FromBonus()
     {
-        if (basicValues.nowBonus < 2)
-            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowLength * (basicValues.nowBonus + 2), true));
+        if (basicValues.nowBonus == 0)
+            StartCoroutine(Move(basicValues.nowPlayer, 1, true));
+        if (basicValues.nowBonus == 1)
+            StartCoroutine(Move(basicValues.nowPlayer, 2, true));
         else if (basicValues.nowBonus == 2)
-            Panel(Gift, 11);
-        else if (basicValues.nowBonus == 3)
         {
             basicValues.nextGame[basicValues.nowPlayer] = true;
             ResetBonusAndNextPlayer();
         }
-        else if (basicValues.nowBonus < 9)
-            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowBonus - 3, true));
+        else if (basicValues.nowBonus == 3)
+            StartCoroutine(Move(basicValues.nowPlayer, 3, true));
+        else if (basicValues.nowBonus == 4)
+            Panel(Gift, 11);
+        else if (basicValues.nowBonus == 5)
+            StartCoroutine(Move(basicValues.nowPlayer, 4, true));
+        else if (basicValues.nowBonus == 6)
+            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowLength, true));
+        else if (basicValues.nowBonus == 7)
+            StartCoroutine(Move(basicValues.nowPlayer, 5, true));
+        else if (basicValues.nowBonus == 8)
+            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowLength * 2, true));
         else
         {
             NextPlayer();

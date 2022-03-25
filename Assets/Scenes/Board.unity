@@ -2242,15 +2242,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dice: {fileID: 395679025}
   bonuses:
-  - {fileID: 21300000, guid: e11fe7b0ed64e0644a5575c3b7e31084, type: 3}
-  - {fileID: 21300000, guid: 296005b0e17d8af49aa744d38c1f2c5a, type: 3}
-  - {fileID: 21300000, guid: a0f4a2a629bef28418abeeeda8428c66, type: 3}
-  - {fileID: 21300000, guid: 5d84a315918752c4ca91108c2581ba73, type: 3}
   - {fileID: 21300000, guid: c0ccc8ec7d5aacd4784be120e14c996a, type: 3}
   - {fileID: 21300000, guid: a8ed151f697f9e8458690a80686a4a7c, type: 3}
+  - {fileID: 21300000, guid: 5d84a315918752c4ca91108c2581ba73, type: 3}
   - {fileID: 21300000, guid: f89ee77ec520e4642a4b5ce3e99166ee, type: 3}
+  - {fileID: 21300000, guid: a0f4a2a629bef28418abeeeda8428c66, type: 3}
   - {fileID: 21300000, guid: 09cf089a699c45640b6956e0fb62738a, type: 3}
+  - {fileID: 21300000, guid: e11fe7b0ed64e0644a5575c3b7e31084, type: 3}
   - {fileID: 21300000, guid: 135973db0ecff6147844de97df6856e2, type: 3}
+  - {fileID: 21300000, guid: 296005b0e17d8af49aa744d38c1f2c5a, type: 3}
   - {fileID: 21300000, guid: f16bb6e9dbb5aea4c94ecf9d18a8fae1, type: 3}
   player: {fileID: 2691134461619592275, guid: a2627354da1d7da4180cc0567565216f, type: 3}
   spawns:

@@ -47,6 +47,33 @@ public class BasicValues : MonoBehaviour
         }
     }
 
+    public void ChooseBonus(int bonus)
+    {
+        switch (bonus)
+        {
+            case 1:
+                nowBonus = Random.Range(0, 2);
+                break;
+            case 2:
+                nowBonus = Random.Range(0, 4);
+                break;
+            case 3:
+                nowBonus = Random.Range(0, 6);
+                break;
+            case 4:
+                nowBonus = Random.Range(0, 8);
+                break;
+            case 5:
+                nowBonus = Random.Range(0, 9);
+                break;
+            case 6:
+                nowBonus = Random.Range(0, 10);
+                break;
+            default:
+                break;
+        }
+    }
+
     public void PanelExit(bool isOpen)
     {
         Time.timeScale = isOpen ? 1 : 0;
