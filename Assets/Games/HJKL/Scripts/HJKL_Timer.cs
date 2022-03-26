@@ -20,6 +20,8 @@ public class HJKL_Timer : MonoBehaviour
     public GameObject right_love;
     public GameObject left_love;
 
+    private int score = 0;
+
     private void Update()
     {
         if (StartTime > 0)
@@ -40,11 +42,13 @@ public class HJKL_Timer : MonoBehaviour
         {
             TimerTime -= 1;
 
-            FinalScore.text = "Score: " + (hero.GetComponent<Hero>().loves_num -
-            hero.GetComponent<Hero>().bads_num -
-            gameCtr.GetComponent<Loves_crosses_mover>().fails_num).ToString();
+            Hero h = hero.GetComponent<Hero>();
 
-            Invoke("LoadMenue", 3);
+            score = h.loves_num - h.bads_num - gameCtr.GetComponent<Loves_crosses_mover>().fails_num;
+
+            FinalScore.text = "Score: " + score.ToString();
+
+            Invoke("GameIsOver", 2);
             Stop();
         }
         else if (TimerTime > -1)
@@ -64,8 +68,28 @@ public class HJKL_Timer : MonoBehaviour
         Destroy(hero);
     }
 
-    void LoadMenue()
+    public void GameIsOver()
     {
-        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
+        BasicValues bv = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
+
+        int x = score;
+
+        if (x > 20)
+        {
+            if (x <= 25)
+                bv.ChooseBonus(1);
+            if (x <= 30)
+                bv.ChooseBonus(2);
+            if (x <= 33)
+                bv.ChooseBonus(3);
+            if (x <= 35)
+                bv.ChooseBonus(4);
+            if (x <= 40 || bv.playersCount == 1)
+                bv.ChooseBonus(5);
+            else
+                bv.ChooseBonus(6);
+        }
+
+        bv.MenuOrBoard();
     }
 }

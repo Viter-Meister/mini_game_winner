@@ -31,6 +31,26 @@ public class MazeTime : MonoBehaviour
 
     public void GameIsOver()
     {
-        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
+        BasicValues bv = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
+
+        int x = int.Parse(GameObject.Find("ScoreInt").GetComponent<Text>().text);
+
+        if (x > 65)
+        {
+            if (x <= 70)
+                bv.ChooseBonus(1);
+            if (x <= 79)
+                bv.ChooseBonus(2);
+            if (x <= 99)
+                bv.ChooseBonus(3);
+            if (x <= 109)
+                bv.ChooseBonus(4);
+            if (x <= 129 || bv.playersCount == 1)
+                bv.ChooseBonus(5);
+            else
+                bv.ChooseBonus(6);
+        }
+
+        bv.MenuOrBoard();
     }
 }
