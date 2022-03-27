@@ -29,13 +29,18 @@ public class BoardMain : MonoBehaviour
 
     private BasicValues basicValues;
     private GameObject[] players = new GameObject[4];
-    private float offset = 0.07f;
+    private float offset = 0.15f;
     private int end = 30;
 
     private void Start()
     {
         basicValues = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
         SpawnPlayers(basicValues.playersCount);
+        Invoke("FromStart", 0.1f);
+    }
+
+    private void FromStart()
+    {
         if (basicValues.nowBonus == -1)
             AfterGame();
         else
