@@ -17,6 +17,11 @@ public class BoardMain : MonoBehaviour
     public Image[] PanelPlayers;
     public GameObject YourMove;
     public GameObject Bonus;
+    public GameObject Gift;
+    public GameObject GiftLuck;
+    public GameObject GiftNotLuck;
+    public GameObject ChoiceGameOnePlayer;
+    public GameObject ChoiceGameTwoPlayers;
     public GameObject End;
     public GameObject NextGameOnePlayer;
     public GameObject NextGameTwoPlayers;
@@ -24,13 +29,18 @@ public class BoardMain : MonoBehaviour
 
     private BasicValues basicValues;
     private GameObject[] players = new GameObject[4];
-    private float offset = 0.07f;
+    private float offset = 0.15f;
     private int end = 30;
 
     private void Start()
     {
         basicValues = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
         SpawnPlayers(basicValues.playersCount);
+        Invoke("FromStart", 0.1f);
+    }
+
+    private void FromStart()
+    {
         if (basicValues.nowBonus == -1)
             AfterGame();
         else
@@ -40,12 +50,48 @@ public class BoardMain : MonoBehaviour
         }
     }
 
+    public void FromGift(bool isYes)
+    {
+        if (!isYes)
+            ResetBonusAndNextPlayer();
+        else
+        {
+            int r = Random.Range(0, 2);
+            Panel(r == 0 ? GiftLuck : GiftNotLuck, r == 0 ? 12 : 13);
+        }
+    }
+
+    public void FromGiftYes(bool isLuck)
+    {
+        if (isLuck)
+            StartCoroutine(Move(basicValues.nowPlayer, end, true));
+        else
+            StartCoroutine(Move(basicValues.nowPlayer, -end, true));
+    }
+
     public void FromBonus()
     {
-        if (basicValues.nowBonus < 2)
-            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowLength * (basicValues.nowBonus + 2), true));
-        else if (basicValues.nowBonus < 9)
-            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowBonus - 3, true));
+        if (basicValues.nowBonus == 0)
+            StartCoroutine(Move(basicValues.nowPlayer, 1, true));
+        if (basicValues.nowBonus == 1)
+            StartCoroutine(Move(basicValues.nowPlayer, 2, true));
+        else if (basicValues.nowBonus == 2)
+        {
+            basicValues.nextGame[basicValues.nowPlayer] = true;
+            ResetBonusAndNextPlayer();
+        }
+        else if (basicValues.nowBonus == 3)
+            StartCoroutine(Move(basicValues.nowPlayer, 3, true));
+        else if (basicValues.nowBonus == 4)
+            Panel(Gift, 11);
+        else if (basicValues.nowBonus == 5)
+            StartCoroutine(Move(basicValues.nowPlayer, 4, true));
+        else if (basicValues.nowBonus == 6)
+            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowLength, true));
+        else if (basicValues.nowBonus == 7)
+            StartCoroutine(Move(basicValues.nowPlayer, 5, true));
+        else if (basicValues.nowBonus == 8)
+            StartCoroutine(Move(basicValues.nowPlayer, basicValues.nowLength * 2, true));
         else
         {
             NextPlayer();
@@ -80,9 +126,9 @@ public class BoardMain : MonoBehaviour
         GameObject.Find("Click(Clone)").GetComponent<AudioSource>().Play();
     }
 
-    public void Menu()
+    public void ChangeScene(string scene)
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(scene);
     }
 
     public void Dice()
@@ -133,15 +179,17 @@ public class BoardMain : MonoBehaviour
 
     private IEnumerator Move(int player, int length, bool isBonus)
     {
+        yield return new WaitForSeconds(0.5f);
         basicValues.nowLength = length;
-        for (int i = basicValues.playersPosition[player]; i <= basicValues.playersPosition[player] + length; i++)
+        for (int i = 0; i < Mathf.Abs(length); i++)
         {
-            if (i > end)
+            basicValues.playersPosition[player] += (int)Mathf.Sign(length);
+            players[player].transform.position = spawns[basicValues.playersPosition[player]].position
+                + new Vector3(offset * player, 0);
+            if (basicValues.playersPosition[player] == 0 || basicValues.playersPosition[player] == end)
                 break;
-            players[player].transform.position = spawns[i].position + new Vector3(offset * player, 0);
             yield return new WaitForSeconds(0.2f);
         }
-        basicValues.playersPosition[player] += length;
         
         yield return new WaitForSeconds(1);
 
@@ -153,15 +201,26 @@ public class BoardMain : MonoBehaviour
                 ResetBonusAndNextPlayer();
             else
             {
-                int whatGame = Random.Range(0, 2);
-                if (basicValues.playersCount == 1 || whatGame == 0)
-                    Panel(NextGameOnePlayer, 1);
+                if (basicValues.nextGame[player])
+                {
+                    basicValues.nextGame[player] = false;
+                    if (basicValues.playersCount == 1)
+                        Panel(ChoiceGameOnePlayer, 14);
+                    else
+                        Panel(ChoiceGameTwoPlayers, 15);
+                }
                 else
                 {
-                    if (basicValues.playersCount == 2)
-                        Panel(NextGameTwoPlayers, 2);
+                    int whatGame = Random.Range(0, 2);
+                    if (basicValues.playersCount == 1 || whatGame == 0)
+                        Panel(NextGameOnePlayer, 1);
                     else
-                        Panel(NextGameManyPlayers, 3);
+                    {
+                        if (basicValues.playersCount == 2)
+                            Panel(NextGameTwoPlayers, 2);
+                        else
+                            Panel(NextGameManyPlayers, 3);
+                    }
                 }
             }
         }

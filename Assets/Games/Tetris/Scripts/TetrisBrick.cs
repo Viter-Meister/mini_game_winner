@@ -85,19 +85,17 @@ public class TetrisBrick : MonoBehaviour
         if (isTrue)
             transform.position -= transform.up;
 
-        if (Input.GetKey(KeyCode.RightArrow))
-            if (Assert(1, 0, bricks))
-            {
-                transform.position += transform.right;
-                isTrue = true;
-            }
+        if (Input.GetKey(KeyCode.RightArrow) && Assert(1, 0, bricks))
+        {
+            //transform.position += transform.right;
+            isTrue = true;
+        }
                 
-        if (Input.GetKey(KeyCode.LeftArrow))
-           if (Assert(-1, 0, bricks))
-            {
-                transform.position -= transform.right;
-                isTrue = true;
-            }
+        if (Input.GetKey(KeyCode.LeftArrow) && Assert(-1, 0, bricks))
+        {
+            //transform.position -= transform.right;
+            isTrue = true;
+        }
                 
         if (isTrue)
             Invoke(nameof(Movement), TetrisMain.speed);
@@ -117,10 +115,26 @@ public class TetrisBrick : MonoBehaviour
         }
     }
 
+    private float minTime = 0.1f;
+    private float time;
+
     private void Update()
     {
-        if (Input.GetButtonDown("TetrisRotate") && !sleep)
+        if (sleep)
+            return;
+        if (Input.GetButtonDown("TetrisRotate"))
             Rotate();
+        if (Input.GetKey(KeyCode.RightArrow) && (Time.time - time > minTime) && Assert(1, 0, bricks))
+        {
+            time = Time.time;
+            transform.position += transform.right;
+        }
+            
+        if (Input.GetKey(KeyCode.LeftArrow) && (Time.time - time > minTime) && Assert(-1, 0, bricks))
+        {
+            time = Time.time;
+            transform.position -= transform.right;
+        }
     }
 
     private void Rotate()

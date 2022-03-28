@@ -24,7 +24,9 @@ public class Ball : MonoBehaviour
     public GameObject L_W;
     private int Right_Count = 0;
     private int Left_Count = 0;
- 
+
+    private bool isRightWin;
+
     void n_11()
     {
         n_2.SetActive(false);
@@ -109,7 +111,8 @@ IEnumerator Coroutine()
         {
             R_03.SetActive(true);
             R_W.SetActive(true);
-            Invoke("EndGame", 2);
+            isRightWin = false;
+            Invoke("GameIsOver", 2);
         }
         if ((transform.position.x < -11) && (Right_Count == 0))
         {
@@ -127,7 +130,8 @@ IEnumerator Coroutine()
         {
             L_03.SetActive(true);
             L_W.SetActive(true);
-            Invoke("EndGame", 2);
+            isRightWin = true;
+            Invoke("GameIsOver", 2);
         }
     }    
 
@@ -143,8 +147,13 @@ IEnumerator Coroutine()
         }
     }
 
-    private void EndGame()
+    public void GameIsOver()
     {
-        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
+        BasicValues bv = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
+
+        if (isRightWin)
+            bv.ChooseBonus(6);
+
+        bv.MenuOrBoard();
     }
 }

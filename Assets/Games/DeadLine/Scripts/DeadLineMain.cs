@@ -24,6 +24,8 @@ public class DeadLineMain : MonoBehaviour
     private Vector2 StartPosition1;
     private Vector2 StartPosition2;
 
+    private bool isRightWin;
+
     void Start()
     {
         StartPosition1 = Player1.transform.position;
@@ -36,10 +38,12 @@ public class DeadLineMain : MonoBehaviour
         {
             if (point1 == 3)
             {
+                isRightWin = true;
                 RedWin.SetActive(true);
             }
             else
             {
+                isRightWin = false;
                 BlueWin.SetActive(true);
             }
 
@@ -74,9 +78,9 @@ public class DeadLineMain : MonoBehaviour
                 Player1.SetActive(false);
                 Player2.SetActive(false);
 
-                Invoke("GameIsOver", 3);
+                Invoke("GameIsOver", 2);
             }
-            Invoke("Restart", 3);
+            Invoke("Restart", 1);
             Player1.GetComponent<PlayerMove>().Death = false;
             Player2.GetComponent<PlayerMove>().Death = false;
         }
@@ -103,7 +107,12 @@ public class DeadLineMain : MonoBehaviour
 
     public void GameIsOver()
     {
-        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
+        BasicValues bv = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
+
+        if (isRightWin)
+            bv.ChooseBonus(6);
+
+        bv.MenuOrBoard();
     }
 
     private void ClearTrail()

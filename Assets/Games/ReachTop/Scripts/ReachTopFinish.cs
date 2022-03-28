@@ -11,6 +11,8 @@ public class ReachTopFinish : MonoBehaviour
 
     public Text Winner;
 
+    private bool isRedWin;
+
     void Update()
     {
         if (IsWin)
@@ -25,15 +27,26 @@ public class ReachTopFinish : MonoBehaviour
         Destroy(playerRed.BoxeToPlace.gameObject);
 
         if (playerBlue.newY == 6)
+        {
             Winner.text = "Blue won!";
+            isRedWin = false;
+        }
         else
+        {
             Winner.text = "Red won!";
+            isRedWin = true;
+        }
 
-        Invoke("GoToMenue", 2);
+        Invoke("GameIsOver", 2);
     }
 
-    void GoToMenue()
+    public void GameIsOver()
     {
-        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().MenuOrBoard();
+        BasicValues bv = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
+
+        if (isRedWin)
+            bv.ChooseBonus(6);
+
+        bv.MenuOrBoard();
     }
 }
