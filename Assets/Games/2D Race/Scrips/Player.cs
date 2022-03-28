@@ -19,8 +19,13 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Car"))
         {
-            Destroy(gameObject);
-            Instantiate(End, new Vector3(-0.7593835f, 3.565657f, -2), Quaternion.Euler(new Vector3(0, 0, 0)));
+            Invoke("GoToMenue", 3);
+            gameObject.SetActive(false);
         }
+    }
+
+    private void GoToMenue()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 }
