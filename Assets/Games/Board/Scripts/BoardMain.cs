@@ -152,10 +152,19 @@ public class BoardMain : MonoBehaviour
     {
         //bool game = basicValues.nextGame[basicValues.nowPlayer];
         //basicValues.nextGame[basicValues.nowPlayer] = false;
+        int game;
         if (isOnePlayerGame)
-            SceneManager.LoadScene(games[Random.Range(0, 4)]);
+        {
+            do game = Random.Range(0, 4);
+            while (game == basicValues.previousGame);
+        }
         else
-            SceneManager.LoadScene(games[Random.Range(4, games.Length)]);
+        {
+            do game = Random.Range(4, games.Length);
+            while (game == basicValues.previousGame);
+        }
+        basicValues.previousGame = game;
+        SceneManager.LoadScene(games[game]);
     }
 
     private void Panel(GameObject NextGame, int nowPlayerColor)
