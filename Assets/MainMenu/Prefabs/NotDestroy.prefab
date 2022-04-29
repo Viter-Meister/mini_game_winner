@@ -862,6 +862,7 @@ MonoBehaviour:
   playersPosition: 00000000000000000000000000000000
   nowPlayer: 0
   nextGame: 00000000
+  previousGame: -1
   nowBonus: 0
   nowLength: 0
 --- !u!114 &6843443042315426778
