@@ -1438,7 +1438,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485374900}
-  m_Text: Finish
+  m_Text: "\u0424\u0438\u043D\u0438\u0448"
   m_OffsetZ: 0
   m_CharacterSize: 0.013
   m_LineSpacing: 1.34
@@ -1919,7 +1919,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079372478}
-  m_Text: Finish
+  m_Text: "\u0424\u0438\u043D\u0438\u0448"
   m_OffsetZ: 0
   m_CharacterSize: 0.013
   m_LineSpacing: 1.34

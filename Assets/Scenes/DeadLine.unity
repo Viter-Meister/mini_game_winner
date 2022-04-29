@@ -2431,7 +2431,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Blue Won
+  m_Text: "\u0421\u0438\u043D\u0438\u0439 \u0432\u044B\u0438\u0433\u0440\u0430\u043B!"
 --- !u!222 &752244363
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5358,7 +5358,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Red Won
+  m_Text: "\u041A\u0440\u0430\u0441\u043D\u044B\u0439 \u0432\u044B\u0438\u0433\u0440\u0430\u043B!"
 --- !u!222 &1881218610
 CanvasRenderer:
   m_ObjectHideFlags: 0

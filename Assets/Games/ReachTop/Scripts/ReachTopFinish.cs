@@ -28,12 +28,12 @@ public class ReachTopFinish : MonoBehaviour
 
         if (playerBlue.newY == 6)
         {
-            Winner.text = "Blue won!";
+            Winner.text = "Синий выиграл!";
             isRedWin = false;
         }
         else
         {
-            Winner.text = "Red won!";
+            Winner.text = "Красный выиграл!";
             isRedWin = true;
         }
 
