@@ -16,8 +16,8 @@ public class SpawnCars : MonoBehaviour
     {
         while(true)
         {
-            Instantiate(cars[Random.Range(0, cars.Length)], new Vector3(positions[Random.Range(0, positions.Length)], 8.5f, 0), Quaternion.Euler(new Vector3(90, 180, 0)));
-            yield return new WaitForSeconds(1.5f);
+            Instantiate(cars[Random.Range(0, cars.Length)], new Vector3(positions[Random.Range(0, positions.Length)], 15.5f, 0), Quaternion.Euler(new Vector3(90, 180, 0)));
+            yield return new WaitForSeconds(1f);
         }
     }
 }
