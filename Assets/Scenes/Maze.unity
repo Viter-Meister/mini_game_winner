@@ -194,7 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time:'
+  m_Text: "\u0412\u0440\u0435\u043C\u044F:"
 --- !u!222 &321412444
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1003,7 +1003,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: '
+  m_Text: "\u041E\u0447\u043A\u0438: "
 --- !u!222 &2038727790
 CanvasRenderer:
   m_ObjectHideFlags: 0

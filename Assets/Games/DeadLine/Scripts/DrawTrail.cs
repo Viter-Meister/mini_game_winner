@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,15 +6,17 @@ public class DrawTrail : MonoBehaviour
     public GameObject Player;
     public GameObject AnotherPlayer;
 
-    public GameObject PartOfTrail;
+    public int TrailLength = 0;
 
+    private LineRenderer line;
     public List<Vector2> pointsList;
 
-
-    public float CountToGap = 0;
+    public new EdgeCollider2D collider;
 
     private void Start()
     {
+        line = GetComponent<LineRenderer>();
+        collider = GetComponent<EdgeCollider2D>();
         pointsList = new List<Vector2>();
     }
 
@@ -24,13 +25,33 @@ public class DrawTrail : MonoBehaviour
         if (!pointsList.Contains(Player.transform.position))
         {
             pointsList.Add(Player.transform.position);
-            CountToGap += 1;
-        }
+            line.positionCount = pointsList.Count;
+            line.SetPosition(pointsList.Count - 1, pointsList[pointsList.Count - 1]);
+            if (pointsList.Count > 1)
+            {
+                collider.points = pointsList.ToArray();
+                collider.enabled = true;
+            }
 
-        if (CountToGap % 50 == 0)
+            TrailLength += 1;
+
+            RemovePointInLine();
+        }
+    }
+
+    private void RemovePointInLine()
+    {
+
+        if (TrailLength == 200)
         {
-            GameObject child = Instantiate(PartOfTrail);
-            child.transform.SetParent(this.transform);
+            line.positionCount = 0;
+            pointsList.RemoveAt(0);
+            line.positionCount = pointsList.Count;
+            for (int i = 0; i < pointsList.Count; i++)
+            {
+                line.SetPosition(i, pointsList[i]);
+            }
+            TrailLength -= 1;
         }
     }
 }

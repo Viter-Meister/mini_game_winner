@@ -10,8 +10,13 @@ TagManager:
   - Text
   - BonusChest
   - Trail1
+<<<<<<< HEAD
   - Wall
   - Car
+=======
+  - Border1
+  - Border2
+>>>>>>> master
   layers:
   - Default
   - TransparentFX

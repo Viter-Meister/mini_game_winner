@@ -11,6 +11,7 @@ public class BasicValues : MonoBehaviour
     public int[] playersPosition;
     public int nowPlayer;
     public bool[] nextGame;
+    public int previousGame;
     public int nowBonus;
     public int nowLength;
     private AudioSource audioSource;
@@ -30,6 +31,7 @@ public class BasicValues : MonoBehaviour
             nextGame[i] = false;
         nowPlayer = 3;
         nowBonus = -1;
+        previousGame = -1;
         isGame = false;
     }
 
