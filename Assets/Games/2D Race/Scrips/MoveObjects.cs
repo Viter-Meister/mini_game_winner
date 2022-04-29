@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveObjects : MonoBehaviour
@@ -11,6 +9,8 @@ public class MoveObjects : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         if (transform.position.y < -6.5)
+        {
             Destroy(gameObject);
+        }
     }
 }
