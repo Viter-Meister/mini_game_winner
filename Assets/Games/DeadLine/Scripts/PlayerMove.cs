@@ -4,7 +4,9 @@ public class PlayerMove : MonoBehaviour
 {
     public string Horizontal;
     public string Vertical;
-    public string Tag;
+    public string Tag1;
+    public string Tag2;
+    public string Tag3;
 
     public float speed = 0.1f;
     public GameObject SelfTrail;
@@ -27,7 +29,7 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == Tag)
+        if (collision.gameObject.tag == Tag1)
         {
             explosionAudio.Play();
             Instantiate(explosionEffect, gameObject.transform.position, Quaternion.identity);
@@ -35,6 +37,22 @@ public class PlayerMove : MonoBehaviour
             SelfTrail.SetActive(false);
             OtherTrail.SetActive(false);
             Death = true;
+        }
+
+        if (collision.gameObject.tag == Tag2)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y * (-1));
+            SelfTrail.GetComponent<LineRenderer>().positionCount = 0;
+            SelfTrail.GetComponent<DrawTrail>().pointsList.Clear();
+            SelfTrail.GetComponent<DrawTrail>().TrailLength = 0;
+        }
+
+        if (collision.gameObject.tag == Tag3)
+        {
+            transform.position = new Vector3(transform.position.x*(-1), transform.position.y);
+            SelfTrail.GetComponent<LineRenderer>().positionCount = 0;
+            SelfTrail.GetComponent<DrawTrail>().pointsList.Clear();
+            SelfTrail.GetComponent<DrawTrail>().TrailLength = 0;
         }
     }
 }
