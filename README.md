@@ -34,6 +34,10 @@
 
 ![Иллюстрация к мини игре Maze](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/Maze.png)
 
-**Dead Line** - мини игра, в которой игроку нужно прокладывать тропу и заманить своего противника в ловушку. Побеждает тот, кто первым наберет 3 очка. 
+**Dead Line** - мини игра, в которой игроку нужно прокладывать тропу и заманить своего противника в ловушку. Побеждает тот, кто первым наберет 3 очка.
 
 ![Иллюстрация к мини игре DeadLine](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/DeadLine.png)
+
+**Race** - мини игра, в которой игроку предстоит двигаться на автомобиле по автостраде в плотном потоке транспорта, успешно лавируя между автомобилями.
+
+![Иллюстрация к мини игре DeadLine](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/Race.png)
