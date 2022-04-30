@@ -26,6 +26,7 @@ public class LeftPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Rb = gameObject.GetComponent<Rigidbody>();
         RunSpeed = 6f;
         SideSpeed = 6f;
         JumpForse = 14f;
