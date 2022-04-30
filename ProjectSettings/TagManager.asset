@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Boxe_Blue
-  - Block
-  - Coin
-  - Text
-  - BonusChest
-  - Trail1
-  - Border1
-  - Border2
+  tags: []
   layers:
   - Default
   - TransparentFX
