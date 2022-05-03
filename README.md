@@ -1,5 +1,6 @@
 # Mini game winner
-![Логотип](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/logo.png)
+![Логотип1](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/fon1.jpg)
+![Логотип1](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/fon1.jpg)
 
 **Mini game winner** – это развлекательная аркада с примесью веселья, сражений и множества мини-игр, где вы сможете просто от души повеселиться и хорошо провести время как с друзьями, так и самостоятельно.
 
