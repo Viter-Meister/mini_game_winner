@@ -26,6 +26,7 @@ public class Ball : MonoBehaviour
     private int Left_Count = 0;
 
     private bool isRightWin;
+    public AudioSource shoot;
 
     void n_11()
     {
@@ -137,6 +138,7 @@ IEnumerator Coroutine()
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        shoot.Play();
         if ((col.gameObject.CompareTag("Player")) && (transform.position.x < 9.2f) && (transform.position.x > -9.2f))
         {
             direction.x = -direction.x;

@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 using System.Linq;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Options : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class Options : MonoBehaviour
     public Toggle windowed;
     public Slider maxFPS;
     public TextMeshProUGUI nowMaxFPS;
+    public TMP_Dropdown fon;
+    public GameObject fonObject1;
+    public GameObject fonObject2;
+    public Sprite fonImage1;
+    public Sprite fonImage2;
 
     public Slider volume;
     public Slider sound;
@@ -33,6 +39,8 @@ public class Options : MonoBehaviour
         resolution.AddOptions(strScreenResolution.ToList());
 
         quality.value = PlayerPrefs.GetInt("quality");
+
+        fon.value = PlayerPrefs.GetInt("Fon");
 
         resolution.value = PlayerPrefs.HasKey("resolution") ?
             PlayerPrefs.GetInt("resolution") : screenResolution.Length - 1;
@@ -69,6 +77,9 @@ public class Options : MonoBehaviour
 
             value = PlayerPrefs.HasKey("maxfps") ? PlayerPrefs.GetInt("maxfps") : 300;
             Application.targetFrameRate = value;
+
+            value = PlayerPrefs.GetInt("fon");
+            SetFon(value);
         }
         
         {
@@ -79,6 +90,26 @@ public class Options : MonoBehaviour
             master.SetFloat("Sound", Mathf.Log10(value) * 20);
             value = PlayerPrefs.HasKey("music") ? PlayerPrefs.GetFloat("music") : 0.5f;
             master.SetFloat("Music", Mathf.Log10(value) * 20);
+        }
+    }
+
+    public void Fon()
+    {
+        SetFon(fon.value);
+        PlayerPrefs.SetInt("fon", fon.value);
+    }
+
+    private void SetFon(int value)
+    {
+        if (value == 1)
+        {
+            fonObject1.GetComponent<Image>().sprite = fonImage2;
+            fonObject2.GetComponent<Image>().sprite = fonImage2;
+        }
+        else
+        {
+            fonObject1.GetComponent<Image>().sprite = fonImage1;
+            fonObject2.GetComponent<Image>().sprite = fonImage1;
         }
     }
 
