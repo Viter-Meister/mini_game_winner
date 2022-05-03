@@ -50,7 +50,7 @@ public class ShootEmUpStats : MonoBehaviour
     public void RemoveLife()
     {
         if (lifeCount == 1)
-            EndGame();
+            GameIsOver();
         lifeCount--;
         life.text = "Life: " + lifeCount;
     }
@@ -62,7 +62,7 @@ public class ShootEmUpStats : MonoBehaviour
             distance.text = distancePercent + "%";
         else {
             distance.text = "100%";
-            EndGame();
+            GameIsOver();
         }
     }
 
@@ -73,10 +73,15 @@ public class ShootEmUpStats : MonoBehaviour
         StartCoroutine(DistanceWaiter(time));
     }
 
-    // ends here
-    public void EndGame()
+    public void GameIsOver()
     {
-        Debug.Log("End Game.");
-        Application.Quit();
+        BasicValues bv = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
+
+        int x = distancePercent;
+
+        if (x >= 100)
+            bv.ChooseBonus(6);
+
+        bv.MenuOrBoard();
     }
 }

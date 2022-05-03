@@ -53,6 +53,11 @@ public class MainMenu : MonoBehaviour
     public void ChangeCountOfPlayers(int count)
     {
         basicValues.playersCount = count;
+    }
+
+    public void ChangeMap(bool isSmall)
+    {
+        basicValues.isSmallMap = isSmall;
         basicValues.isGame = true;
         SceneManager.LoadScene("Board");
     }

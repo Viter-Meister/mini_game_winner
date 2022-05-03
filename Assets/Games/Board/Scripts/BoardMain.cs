@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class BoardMain : MonoBehaviour
 {
+    public GameObject SmallBoard;
+    public GameObject BigBoard;
+
     public GameObject dice;
     public Sprite[] bonuses;
     public GameObject player;
     public Transform[] spawns;
+    public Transform[] spawnsBigMap;
     public Color[] colors;
     public string[] games;
 
@@ -35,6 +39,25 @@ public class BoardMain : MonoBehaviour
     private void Start()
     {
         basicValues = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
+
+
+
+        if (!basicValues.isSmallMap)
+        {
+            GetComponent<Camera>().backgroundColor = new Color32(2, 4, 41, 255);
+            spawns = spawnsBigMap;
+            end = 51;
+            offset = 0.05f;
+            BigBoard.SetActive(true);
+        }
+        else
+        {
+            GetComponent<Camera>().backgroundColor = new Color32(228, 198, 129, 255);
+            SmallBoard.SetActive(true);
+        }
+            
+            
+
         SpawnPlayers(basicValues.playersCount);
         Invoke("FromStart", 0.1f);
     }

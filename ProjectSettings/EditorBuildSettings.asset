@@ -36,6 +36,12 @@ EditorBuildSettings:
     path: Assets/Scenes/DeadLine.unity
     guid: 81c3759a48ba10840a4345458dd23fda
   - enabled: 1
-    path: Assets/Scenes/2D Race.unity
+    path: Assets/Scenes/Race.unity
     guid: c2386fa9fe5b63445901dc0ea03e042c
+  - enabled: 1
+    path: Assets/Scenes/JumpingJacks.unity
+    guid: 2feb4210f8e38ca45a0f15ce5746707e
+  - enabled: 1
+    path: Assets/Scenes/ShootEmUp.unity
+    guid: ad13576966c99ed48ac48fa00b3af0b0
   m_configObjects: {}

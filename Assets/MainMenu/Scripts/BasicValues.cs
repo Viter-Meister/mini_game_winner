@@ -14,6 +14,7 @@ public class BasicValues : MonoBehaviour
     public int previousGame;
     public int nowBonus;
     public int nowLength;
+    public bool isSmallMap;
     private AudioSource audioSource;
 
     private void Start()
