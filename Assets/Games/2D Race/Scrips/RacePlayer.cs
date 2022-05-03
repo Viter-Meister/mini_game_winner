@@ -6,8 +6,14 @@ public class RacePlayer : MonoBehaviour
 {
     public float speed = 4f;
 
+    public AudioSource bump;
+
     public GameObject gameController;
 
+    private void Start()
+    {
+        bump = gameController.GetComponent<AudioSource>();
+    }
     void Update()
     {
         gameObject.GetComponent<Rigidbody>().WakeUp();
@@ -27,6 +33,7 @@ public class RacePlayer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Car"))
         {
+            bump.Play();
             Time.timeScale = 0;
             gameObject.SetActive(false);
         }

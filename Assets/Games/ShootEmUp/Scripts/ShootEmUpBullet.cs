@@ -6,6 +6,7 @@ public class ShootEmUpBullet : MonoBehaviour
 {
     public float speed = 10f;
     public Rigidbody2D rb;
+    public AudioSource shoot;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class ShootEmUpBullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         ShootEmUpEnemy2 Enemy = hitInfo.GetComponent<ShootEmUpEnemy2>();
-        
+        shoot.Play();
         if (Enemy != null) {
             Enemy.TakeDamage();
             Destroy(gameObject);

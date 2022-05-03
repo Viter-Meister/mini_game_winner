@@ -29,6 +29,8 @@ public class Hero : MonoBehaviour
     // public Text bonus2; int bonus2_num;
     public Text bads; public int bads_num;
 
+    public AudioSource take;
+
     void Start()
     {
         love1_r = GameObject.Find("right_LOVE");    love1_l = GameObject.Find("left_LOVE");
@@ -101,6 +103,7 @@ public class Hero : MonoBehaviour
     void WasCatched_lb(GameObject item, float item_position, Vector3 start_position, float limit_position)
     {// left and bottom movement
         if (item_position > limit_position) {
+            take.Play();
             item.transform.position = start_position;
             item.transform.localScale = originscale;
             StatUpdate(item);
@@ -110,6 +113,7 @@ public class Hero : MonoBehaviour
     void WasCatched_rt(GameObject item, float item_position, Vector3 start_position, float limit_position)
     {// right and top movement
         if (item_position < limit_position) {
+            take.Play();
             item.transform.position = start_position;
             item.transform.localScale = originscale;
             StatUpdate(item);

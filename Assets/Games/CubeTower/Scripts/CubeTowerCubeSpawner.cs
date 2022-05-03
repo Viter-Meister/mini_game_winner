@@ -10,6 +10,8 @@ public class CubeTowerCubeSpawner : MonoBehaviour
     public GameObject StartCube;
     private GameObject LastCube;
 
+    public AudioSource pop;
+
     private int level = 0;
     private Vector3 pos1 = new Vector3(0, 0.5f, -7);
     private Vector3 pos2 = new Vector3(-7, 0.5f, 0);
@@ -28,6 +30,7 @@ public class CubeTowerCubeSpawner : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && !isEnd)
         {
+            pop.Play();
             LastCube.GetComponent<CubeTowerMovingCube>().Stop();
             if (!isEnd)
                 SpawnCube();

@@ -7,6 +7,8 @@ public class ShootEmUpEnemy2 : MonoBehaviour
     public float speed = 3f;
     public Rigidbody2D rb;
 
+    public AudioSource hit;
+
     public Sprite hp2_3;
     public Sprite hp1_3;
     private sbyte hp = 2;
@@ -36,6 +38,7 @@ public class ShootEmUpEnemy2 : MonoBehaviour
     {
         Sprite[] hpSprites = new Sprite[] {hp1_3, hp2_3};
         hp -= 1;
+        hit.Play();
 
         if (hp < 0) {
             Destroy(gameObject);
