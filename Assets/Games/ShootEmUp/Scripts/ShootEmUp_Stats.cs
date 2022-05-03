@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShootEmUpStats : MonoBehaviour
+public class ShootEmUp_Stats : MonoBehaviour
 {
     public UnityEngine.UI.Text bonuses;
     public UnityEngine.UI.Text kills;

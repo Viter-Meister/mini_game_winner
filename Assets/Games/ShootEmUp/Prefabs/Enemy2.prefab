@@ -71,12 +71,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8bb5153360df4a341b367dce621df313, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed5e863bb8ba521419b42cc60219a232, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 2.69, y: 3.15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -214,9 +214,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.4
   rb: {fileID: 5477095580994864465}
-  hit: {fileID: -8627839179207246701}
+  hp1_2: {fileID: 0}
   hp2_3: {fileID: 21300000, guid: 7c7e5fd87022799489dae07c171b6262, type: 3}
-  hp1_3: {fileID: 21300000, guid: 127050ff9a1d52a45a6d54065acedcc1, type: 3}
+  hp1_3: {fileID: 21300000, guid: a7674e15231db0b439cff3876cca4ca0, type: 3}
+  hp4_5: {fileID: 0}
+  hp3_5: {fileID: 0}
+  hp2_5: {fileID: 0}
+  hp1_5: {fileID: 0}
+  hp: 2
 --- !u!50 &5477095580994864465
 Rigidbody2D:
   serializedVersion: 4
