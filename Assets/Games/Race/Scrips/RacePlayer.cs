@@ -6,7 +6,7 @@ public class RacePlayer : MonoBehaviour
 {
     public float speed = 4f;
 
-    public AudioSource bump;
+    private AudioSource bump;
 
     public GameObject gameController;
 
@@ -33,6 +33,7 @@ public class RacePlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Car"))
         {
             bump.Play();
+            gameObject.SetActive(false);
             GameIsOver();
         }
     }

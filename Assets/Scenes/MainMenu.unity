@@ -2448,7 +2448,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "Jumping jacks - \u043C\u0438\u043D\u0438-\u0438\u0433\u0440\u0430, \u0432
+    \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0434\u0432\u0443\u043C \u0438\u0433\u0440\u043E\u043A\u0430\u043C
+    \u043F\u0440\u0435\u0434\u0441\u0442\u043E\u0438\u0442, \u0443\u043F\u0440\u0430\u0432\u043B\u044F\u044F
+    \u043A\u0432\u0430\u0434\u0440\u0430\u0442\u043E\u043C, \u043F\u0440\u043E\u0441\u043A\u0430\u043A\u0438\u0432\u0430\u0442\u044C
+    \u0447\u0435\u0440\u0435\u0437 \u043F\u0440\u0435\u043F\u044F\u0442\u0441\u0442\u0432\u0438\u044F.\n\n\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435
+    1 \u0438\u0433\u0440\u043E\u043A\u0430 - \u0441\u0442\u0440\u0435\u043B\u043A\u0438
+    \u0432\u043B\u0435\u0432\u043E \u0438 \u0432\u043F\u0440\u0430\u0432\u043E.\n\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435
+    2 \u0438\u0433\u0440\u043E\u043A\u0430 - \u043A\u043B\u0430\u0432\u0438\u0448\u0438
+    A \u0438 D."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88b7d99650918474cb9e38a3ce9469b3, type: 2}
   m_sharedMaterial: {fileID: -8188601283147355983, guid: 88b7d99650918474cb9e38a3ce9469b3, type: 2}
@@ -2537,7 +2545,7 @@ GameObject:
   - component: {fileID: 285251824}
   - component: {fileID: 285251823}
   m_Layer: 5
-  m_Name: Starship
+  m_Name: ShootEmUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2582,7 +2590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 2889a7fa29cb1ac479cb5da31f165257, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3122,7 +3130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 83a79708e0abdda4c84cfcc1b594ed6a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4334,7 +4342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aa4007d905d038a4b9fdcb5dfb019a4b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2889a7fa29cb1ac479cb5da31f165257, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8851,7 +8859,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "Shoot Em Up - \u043C\u0438\u043D\u0438-\u0438\u0433\u0440\u0430 \u0432
+    \u0436\u0430\u043D\u0440\u0435 \u0433\u043E\u0440\u0438\u0437\u043E\u043D\u0442\u0430\u043B\u044C\u043D\u043E\u0433\u043E
+    \u0441\u043A\u0440\u043E\u043B\u043B-\u0448\u0443\u0442\u0435\u0440\u0430 aka
+    River Raid.\n\n\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u043A\u043E\u0440\u0430\u0431\u043B\u0435\u043C
+    \u043E\u0441\u0443\u0449\u0435\u0441\u0442\u0432\u043B\u044F\u0435\u0442\u0441\u044F
+    \u043C\u044B\u0448\u044C\u044E.\n\u0421\u0442\u0440\u0435\u043B\u044C\u0431\u0430
+    \u043B\u0435\u0432\u0430\u044F \u043A\u043B\u0430\u0432\u0438\u0448\u0430 \u043C\u044B\u0448\u0438."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88b7d99650918474cb9e38a3ce9469b3, type: 2}
   m_sharedMaterial: {fileID: -8188601283147355983, guid: 88b7d99650918474cb9e38a3ce9469b3, type: 2}
@@ -9177,7 +9191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: af91202aed86bc8428e29d3f62b8a284, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21048,7 +21062,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "Race - \u043C\u0438\u043D\u0438-\u0438\u0433\u0440\u0430, \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u0439
+    \u0438\u0433\u0440\u043E\u043A\u0443 \u043F\u0440\u0435\u0434\u0441\u0442\u043E\u0438\u0442
+    \u0434\u0432\u0438\u0433\u0430\u0442\u044C\u0441\u044F \u043D\u0430 \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u0435
+    \u043F\u043E \u0430\u0432\u0442\u043E\u0441\u0442\u0440\u0430\u0434\u0435 \u0432
+    \u043F\u043B\u043E\u0442\u043D\u043E\u043C \u043F\u043E\u0442\u043E\u043A\u0435
+    \u0442\u0440\u0430\u043D\u0441\u043F\u043E\u0440\u0442\u0430, \u0443\u0441\u043F\u0435\u0448\u043D\u043E
+    \u043B\u0430\u0432\u0438\u0440\u0443\u044F \u043C\u0435\u0436\u0434\u0443 \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u044F\u043C\u0438.\n\n\u0423\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435
+    \u0430\u0432\u0442\u043E\u043C\u043E\u0431\u0438\u043B\u0435\u043C \u043A\u043B\u0430\u0432\u0438\u0448\u0438
+    \u0441\u043E \u0441\u0442\u0440\u0435\u043B\u043A\u0430\u043C\u0438."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88b7d99650918474cb9e38a3ce9469b3, type: 2}
   m_sharedMaterial: {fileID: -8188601283147355983, guid: 88b7d99650918474cb9e38a3ce9469b3, type: 2}
@@ -22166,7 +22188,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Starship
+  m_text: Shoot Em Up
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88b7d99650918474cb9e38a3ce9469b3, type: 2}
   m_sharedMaterial: {fileID: -8188601283147355983, guid: 88b7d99650918474cb9e38a3ce9469b3, type: 2}

@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 2a0f1b5d867eee7408c8415da1713435
@@ -43,5 +40,5 @@ EditorBuildSettings:
     guid: 2feb4210f8e38ca45a0f15ce5746707e
   - enabled: 1
     path: Assets/Scenes/ShootEmUp.unity
-    guid: ad13576966c99ed48ac48fa00b3af0b0
+    guid: 43e203aa44a447e4bad2414480cdd858
   m_configObjects: {}

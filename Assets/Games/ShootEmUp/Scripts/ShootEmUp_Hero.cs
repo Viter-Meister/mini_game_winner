@@ -10,6 +10,7 @@ public class ShootEmUp_Hero : MonoBehaviour
     public GameObject bulletPrefab;
     private Vector3 mousePoint;
     private bool shootLever = true;
+    public AudioSource blaster;
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class ShootEmUp_Hero : MonoBehaviour
         
         // shooting
         if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown("space")) {
+            blaster.Play();
             Shoot();
         }
     }

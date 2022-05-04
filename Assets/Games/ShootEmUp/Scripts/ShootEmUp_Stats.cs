@@ -17,8 +17,6 @@ public class ShootEmUp_Stats : MonoBehaviour
     public  int lifeCount = 3;
     private int distancePercent = 0;
 
-    public AudioSource kill;
-
     public float minutes = 1.0f;
 
     void Start()
@@ -43,7 +41,6 @@ public class ShootEmUp_Stats : MonoBehaviour
     public void AddKill()
     {
         killsCount++;
-        kill.Play();
         kills.text = "Kills: " + killsCount;
     }
 

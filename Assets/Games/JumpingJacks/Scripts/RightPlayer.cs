@@ -1,5 +1,4 @@
-using System.Collections;
-using System;
+using TMPro;
 using UnityEngine;
 
 
@@ -23,11 +22,15 @@ public class RightPlayer : MonoBehaviour
     protected bool leftMove;
     protected bool jump;
 
+    public TMP_Text scoreText;
+    public int score;
+    private int distance;
+
     // Start is called before the first frame update
     void Start()
     {
         Rb = gameObject.GetComponent<Rigidbody>();
-        RunSpeed = 6f;
+        RunSpeed = 8f;
         SideSpeed = 6f;
         JumpForse = 14f;
     }
@@ -46,12 +49,15 @@ public class RightPlayer : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
             jump = true;
 
-        if (Rb.transform.position.z > 100)
-            RunSpeed = 7f;
-        if (Rb.transform.position.z > 280)
-            RunSpeed = 6f;
-        if (Rb.transform.position.z > 1230)
-            ;
+        distance += 1;
+        if (distance % 30 == 0)
+        {
+            score += 1;
+            scoreText.text = score.ToString();
+        }
+
+        if (score == 150)
+            gameObject.SetActive(false);
     }
 
     void FixedUpdate()
@@ -76,6 +82,14 @@ public class RightPlayer : MonoBehaviour
         {
             Rb.AddForce(Vector3.up * JumpForse, ForceMode.Impulse);
             jump = false;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Block"))
+        {
+            gameObject.SetActive(false);
         }
     }
 
