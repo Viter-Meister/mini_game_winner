@@ -40,8 +40,6 @@ public class BoardMain : MonoBehaviour
     {
         basicValues = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
 
-
-
         if (!basicValues.isSmallMap)
         {
             GetComponent<Camera>().backgroundColor = new Color32(2, 4, 41, 255);
@@ -55,9 +53,7 @@ public class BoardMain : MonoBehaviour
             GetComponent<Camera>().backgroundColor = new Color32(228, 198, 129, 255);
             SmallBoard.SetActive(true);
         }
-            
-            
-
+        
         SpawnPlayers(basicValues.playersCount);
         Invoke("FromStart", 0.1f);
     }
@@ -173,17 +169,15 @@ public class BoardMain : MonoBehaviour
 
     public void LoadGame(bool isOnePlayerGame)
     {
-        //bool game = basicValues.nextGame[basicValues.nowPlayer];
-        //basicValues.nextGame[basicValues.nowPlayer] = false;
         int game;
         if (isOnePlayerGame)
         {
-            do game = Random.Range(0, 4);
+            do game = Random.Range(0, 6);
             while (game == basicValues.previousGame);
         }
         else
         {
-            do game = Random.Range(4, games.Length);
+            do game = Random.Range(6, games.Length);
             while (game == basicValues.previousGame);
         }
         basicValues.previousGame = game;
