@@ -43,3 +43,7 @@
 ![Иллюстрация к мини-игре Race](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/Race.png)
 
 **Shoot Em Up** - мини-игра в жанре горизонтального скролл-шутера aka River Raid.
+![Иллюстрация к мини-игре Shoot Em Up](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/ShootEmUp.png)
+
+**Jumping Jacks** -  мини-игра, в которой двум игрокам предстоит, управляя квадратом, проскакивать через препятствия.
+![Иллюстрация к мини-игре Jumping Jacks](https://github.com/Spoky-Loki/mini_game_winner/blob/master/Assets/MainMenu/Sprites/JumpingJacks.png)
