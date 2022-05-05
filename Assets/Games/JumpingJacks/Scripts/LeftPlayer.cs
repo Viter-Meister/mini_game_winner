@@ -57,7 +57,7 @@ public class LeftPlayer : MonoBehaviour
             scoreText.text = score.ToString();
         }
 
-        if (score == 150)
+        if (score == 100)
             gameObject.SetActive(false);
     }
 

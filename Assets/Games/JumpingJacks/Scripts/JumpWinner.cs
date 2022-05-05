@@ -18,8 +18,6 @@ public class JumpWinner : MonoBehaviour
         scoreRight = playerRight.GetComponent<RightPlayer>().score;
         if (!playerLeft.activeSelf && !playerRight.activeSelf)
         {
-            Debug.Log(scoreLeft);
-            Debug.Log(scoreRight);
             cm.SetActive(true);
             if (scoreLeft > scoreRight)
                 WinnerText.text = "Игрок слева выиграл!";
