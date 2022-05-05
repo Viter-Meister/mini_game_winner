@@ -118,7 +118,7 @@ public class DeadLineMain : MonoBehaviour
     {
         BasicValues bv = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
 
-        if (isRightWin)
+        if ((isRightWin && bv.isArrows) || (!isRightWin && !bv.isArrows))
             bv.ChooseBonus(6);
 
         bv.MenuOrBoard();

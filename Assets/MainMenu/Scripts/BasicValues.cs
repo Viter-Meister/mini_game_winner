@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class BasicValues : MonoBehaviour
 {
     public GameObject panelExit;
+    public GameObject panelControls;
     public bool isGame;
     public int playersCount;
     public int[] playersPosition;
@@ -15,6 +17,9 @@ public class BasicValues : MonoBehaviour
     public int nowBonus;
     public int nowLength;
     public bool isSmallMap;
+    public Color[] colors;
+    public Image PanelPlayer;
+    public bool isArrows;
     private AudioSource audioSource;
 
     private void Start()
@@ -22,6 +27,20 @@ public class BasicValues : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         var click = GameObject.Find("Click(Clone)");
         audioSource = click.GetComponent<AudioSource>();
+    }
+
+    public void OpenControls()
+    {
+        Time.timeScale = 0;
+        panelControls.SetActive(true);
+        PanelPlayer.color = colors[nowPlayer];
+    }
+
+    public void IsArrows(bool o)
+    {
+        isArrows = o;
+        panelControls.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void Reload()

@@ -181,6 +181,8 @@ public class BoardMain : MonoBehaviour
             while (game == basicValues.previousGame);
         }
         basicValues.previousGame = game;
+        if (game >= 6)
+            basicValues.OpenControls();
         SceneManager.LoadScene(games[game]);
     }
 

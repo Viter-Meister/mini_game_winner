@@ -44,7 +44,7 @@ public class ReachTopFinish : MonoBehaviour
     {
         BasicValues bv = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
 
-        if (isRedWin)
+        if ((isRedWin && bv.isArrows) || (!isRedWin && !bv.isArrows))
             bv.ChooseBonus(6);
 
         bv.MenuOrBoard();
