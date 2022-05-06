@@ -27,7 +27,6 @@ public class TetrisMain : MonoBehaviour
     private void Update()
     {
         speed = 0.2f + Input.GetAxis("TetrisDown") / 8;
-
     }
 
     public void SpawnBrick()

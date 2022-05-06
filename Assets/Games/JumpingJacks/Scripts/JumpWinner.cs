@@ -12,20 +12,35 @@ public class JumpWinner : MonoBehaviour
 
     public TMP_Text WinnerText;
 
+    private bool isEnd = false;
+
     void Update()
     {
         scoreLeft = playerLeft.GetComponent<LeftPlayer>().score;
         scoreRight = playerRight.GetComponent<RightPlayer>().score;
-        if (!playerLeft.activeSelf && !playerRight.activeSelf)
+        if (!isEnd && !playerLeft.activeSelf && !playerRight.activeSelf)
         {
+            isEnd = true;
             cm.SetActive(true);
             if (scoreLeft > scoreRight)
                 WinnerText.text = "Игрок слева выиграл!";
-            if (scoreLeft < scoreRight)
+            else if (scoreLeft < scoreRight)
                 WinnerText.text = "Игрок справа выиграл!";
-            if (scoreLeft == scoreRight)
+            else
                 WinnerText.text = "Ничья";
-            gameObject.SetActive(false);
+
+            Invoke("GameIsOver", 2);
         }
+    }
+
+    public void GameIsOver()
+    {
+        BasicValues bv = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
+
+        if ((scoreLeft < scoreRight && bv.isArrows) ||
+            (scoreLeft > scoreRight && !bv.isArrows))
+            bv.ChooseBonus(6);
+
+        bv.MenuOrBoard();
     }
 }
