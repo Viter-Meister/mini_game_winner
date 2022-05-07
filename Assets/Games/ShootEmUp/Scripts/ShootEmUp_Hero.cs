@@ -12,11 +12,6 @@ public class ShootEmUp_Hero : MonoBehaviour
     private bool shootLever = true;
     public AudioSource blaster;
 
-    void Start()
-    {
-        Cursor.visible = false;
-    }
-
     void Update()
     {
         mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
