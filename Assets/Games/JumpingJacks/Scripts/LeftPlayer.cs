@@ -50,13 +50,6 @@ public class LeftPlayer : MonoBehaviour
         if (Input.GetKey("w"))
             jump = true;
 
-        distance += 1;
-        if (distance % 30 == 0)
-        {
-            score += 1;
-            scoreText.text = score.ToString();
-        }
-
         if (score == 100)
             gameObject.SetActive(false);
     }
@@ -64,6 +57,13 @@ public class LeftPlayer : MonoBehaviour
     void FixedUpdate()
     {
         Rb.MovePosition(transform.position - Vector3.forward * RunSpeed * Time.deltaTime);
+
+        distance += 1;
+        if (distance % 30 == 0)
+        {
+            score += 1;
+            scoreText.text = score.ToString();
+        }
 
         if (rightMove)
         {
