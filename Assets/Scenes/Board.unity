@@ -2494,7 +2494,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 135973db0ecff6147844de97df6856e2, type: 3}
   - {fileID: 21300000, guid: 296005b0e17d8af49aa744d38c1f2c5a, type: 3}
   - {fileID: 21300000, guid: f16bb6e9dbb5aea4c94ecf9d18a8fae1, type: 3}
-  player: {fileID: 2691134461619592275, guid: a2627354da1d7da4180cc0567565216f, type: 3}
+  player1: {fileID: 2691134461619592275, guid: a2627354da1d7da4180cc0567565216f, type: 3}
+  player2: {fileID: 153864197383563042, guid: 78966a4fc9138334286c1dd9ef0791c4, type: 3}
   spawns:
   - {fileID: 530875681}
   - {fileID: 1985384739}
@@ -2625,6 +2626,8 @@ MonoBehaviour:
   NextGameOnePlayer: {fileID: 1598971385}
   NextGameTwoPlayers: {fileID: 1894147403}
   NextGameManyPlayers: {fileID: 85182712}
+  ConfettinFX: {fileID: 578910287412996130, guid: 0450363124333bd44826e93da8d6a66d, type: 3}
+  Cup: {fileID: 1500322242242810881, guid: 8ecf111a70e7b9745a9300bb30b9195c, type: 3}
 --- !u!1 &429969323
 GameObject:
   m_ObjectHideFlags: 0

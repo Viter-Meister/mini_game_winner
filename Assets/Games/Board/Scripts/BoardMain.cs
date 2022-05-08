@@ -11,7 +11,9 @@ public class BoardMain : MonoBehaviour
 
     public GameObject dice;
     public Sprite[] bonuses;
-    public GameObject player;
+    public GameObject player1;
+    public GameObject player2;
+    private GameObject player;
     public Transform[] spawns;
     public Transform[] spawnsBigMap;
     public Color[] colors;
@@ -31,6 +33,9 @@ public class BoardMain : MonoBehaviour
     public GameObject NextGameTwoPlayers;
     public GameObject NextGameManyPlayers;
 
+    public GameObject ConfettinFX;
+    public GameObject Cup;
+
     private BasicValues basicValues;
     private GameObject[] players = new GameObject[4];
     private float offset = 0.15f;
@@ -39,11 +44,12 @@ public class BoardMain : MonoBehaviour
     private void Start()
     {
         basicValues = GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>();
-
+        player = player1;
         if (!basicValues.isSmallMap)
         {
             GetComponent<Camera>().backgroundColor = new Color32(2, 4, 41, 255);
             spawns = spawnsBigMap;
+            player = player2;
             end = 51;
             offset = 0.05f;
             BigBoard.SetActive(true);
@@ -222,7 +228,12 @@ public class BoardMain : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         if (basicValues.playersPosition[player] >= end)
+        {
+            Instantiate(ConfettinFX, Camera.main.transform.position + new Vector3(5,7), Quaternion.identity);
+            Instantiate(ConfettinFX, Camera.main.transform.position + new Vector3(-5, 7), Quaternion.identity);
+            Instantiate(Cup, new Vector3(0, 2.5f,-5), Quaternion.identity);
             Panel(End, 10);
+        }
         else
         {
             if (isBonus)
