@@ -2496,6 +2496,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f16bb6e9dbb5aea4c94ecf9d18a8fae1, type: 3}
   player1: {fileID: 2691134461619592275, guid: a2627354da1d7da4180cc0567565216f, type: 3}
   player2: {fileID: 153864197383563042, guid: 78966a4fc9138334286c1dd9ef0791c4, type: 3}
+  character2: {fileID: 21300000, guid: 8368bd041b059f4489d209495231b83e, type: 3}
+  character1: {fileID: 21300000, guid: db85ecc2d5318fb4284702b16aae2827, type: 3}
   spawns:
   - {fileID: 530875681}
   - {fileID: 1985384739}

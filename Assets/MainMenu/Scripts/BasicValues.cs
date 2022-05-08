@@ -20,6 +20,7 @@ public class BasicValues : MonoBehaviour
     public Color[] colors;
     public Image PanelPlayer;
     public bool isArrows;
+    public Sprite character;
     private AudioSource audioSource;
 
     private void Start()
@@ -106,7 +107,10 @@ public class BasicValues : MonoBehaviour
     {
         PanelExit(true);
         if (!isGame || SceneManager.GetActiveScene().name == "Board")
+        {
+            PanelPlayer.sprite = character;
             SceneManager.LoadScene("MainMenu");
+        }
         else
             SceneManager.LoadScene("Board");
     }

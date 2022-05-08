@@ -1576,6 +1576,7 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 1, a: 1}
   PanelPlayer: {fileID: 7073871704825498360}
   isArrows: 0
+  character: {fileID: 21300000, guid: db85ecc2d5318fb4284702b16aae2827, type: 3}
 --- !u!114 &6843443042315426778
 MonoBehaviour:
   m_ObjectHideFlags: 0

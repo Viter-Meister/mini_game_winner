@@ -13,6 +13,8 @@ public class BoardMain : MonoBehaviour
     public Sprite[] bonuses;
     public GameObject player1;
     public GameObject player2;
+    public Sprite character2;
+    public Sprite character1;
     private GameObject player;
     public Transform[] spawns;
     public Transform[] spawnsBigMap;
@@ -49,6 +51,7 @@ public class BoardMain : MonoBehaviour
         {
             GetComponent<Camera>().backgroundColor = new Color32(2, 4, 41, 255);
             spawns = spawnsBigMap;
+            changePlayerImage();
             player = player2;
             end = 51;
             offset = 0.05f;
@@ -153,6 +156,10 @@ public class BoardMain : MonoBehaviour
 
     public void ChangeScene(string scene)
     {
+        if (scene.Equals("MainMenu"))
+        {
+            GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().PanelPlayer.sprite = character1;
+        }
         SceneManager.LoadScene(scene);
     }
 
@@ -263,5 +270,14 @@ public class BoardMain : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void changePlayerImage() 
+    {
+        for (int i = 0; i < PanelPlayers.Length; i++)
+        {
+            PanelPlayers[i].sprite = character2; 
+        }
+        GameObject.Find("NotDestroy(Clone)").GetComponent<BasicValues>().PanelPlayer.sprite = character2;
     }
 }
